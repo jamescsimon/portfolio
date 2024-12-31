@@ -1,0 +1,154 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars */
+    height: 100%;
+    font-family: 'Kanit', sans-serif; 
+    background-color: black;
+}
+
+/* New class for thin font weight */
+.kanit-thin {
+    font-weight: 100;
+}
+
+#threejs-container {
+    position: absolute;
+    top: 50px; /* Adjust as needed to the height of your nav bar */
+    left: 0;
+    width: 100%; /* Adjust as needed */
+    height: calc(100% - 50px); /* Adjust as needed to the height of your nav bar */
+}
+
+:root {
+    --offset-right: 0px; /* Default value, will be overwritten */
+}
+
+#rB {
+    position: absolute;
+    bottom: 20%;
+    right: 25%;
+    transform: translateY(-50%);
+    z-index: 99999;
+}
+
+#lB {
+    position: absolute;
+    bottom: 20%;
+    left: 25%;
+    transform: translateY(-50%);
+    z-index: 99999;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed; /* Make the banner fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 10000; /* Ensure the nav bar is above other elements */
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+} /* Change the link color to #111 (black) on hover */
+
+#planetName {
+    position: absolute;
+    bottom: 15%; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 500%;
+    z-index: 10001;
+    max-width: 200%;
+    white-space: nowrap;
+}
+
+#planetDesc {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 200%;
+    z-index: 10001;
+    max-width: 200%;
+    white-space: nowrap;
+}
+
+#overview {
+    position: absolute;
+    top: 50px;
+    right: 10%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 25px;
+    z-index: 10002; /* Ensure it's above other elements */
+    text-decoration: underline;
+}
+
+#overviewDesc {
+    position: absolute;
+    top: 85px;
+    right: 1%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 150%;
+    z-index: 10001; /* Ensure it's above other elements */
+    max-width: 35%;
+}
+
+#skills {
+    position: absolute;
+    bottom: 250px;
+    left: 8%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 25px;
+    z-index: 10002; /* Ensure it's above other elements */
+    text-decoration: underline;
+}
+
+#skillList {
+    position: absolute;
+    bottom: 175px;
+    left: 1%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 25px;
+    z-index: 101; 
+    max-width: 25%;
+}
+
+.trailers {
+    position: fixed;
+    top: 15%; 
+    left: 5%; 
+    width: 15%; 
+    height: auto; /* Maintain aspect ratio */
+    z-index: -100; 
+}
