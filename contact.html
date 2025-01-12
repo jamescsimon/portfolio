@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Simon's Portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&display=swap" rel="stylesheet"> 
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <ul>
+        <li><a href="index.html">Select</a></li> 
+        <li><a href="about.html">About</a></li> 
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="images/Resume.pdf" download="James_Simon_Resume.pdf">Resume</a>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="container">
+        <div id="threejs-container"></div>
+    </div>
+    <div class="contact-container">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <input type="hidden" name="access_key" value="7bc9e156-74c5-47f9-b902-05a392c6ced6">
+            <input type="text"  id="contName" name="name" placeholder="Your Name" class="contact-inputs" required>
+            <input type="email"  id="contEmail" name="email" placeholder="Your Email" class="contact-inputs" required>
+            <textarea name="message"  id="contMessage" placeholder="Your Message" class="contact-inputs" required></textarea>
+            <button type="submit">Launch<img src="" alt=""></button>
+        </form>
+    </div>
+    <div id="contactHeader">Send Me A Message!</div>
+    <div id="contactInstructions">Fill In To Start!</div>
+    <!--<div id="contactName" class="kanit-thin">Enter Your Name</div>
+    <div id="contactEmail" class="kanit-thin">Enter Your Email</div>
+    <div id="contactSubject" class="kanit-thin">Enter Your Subject</div>
+    <div id="contactMessage" class="kanit-thin">Enter Your Message</div>Linked! --> 
+    <canvas class="webgl"></canvas>
+    <script type="module" src="contact.js"></script>     
+</body>
+</html>
