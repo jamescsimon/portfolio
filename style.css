@@ -471,6 +471,7 @@ button:hover {
   left: 1%;
   height: 51.3%;
   width: auto;
+  max-height: 51.3%;
   z-index: -101;
 }
 
