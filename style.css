@@ -441,10 +441,9 @@ button:hover {
 .trailers {
   position: fixed;
   top: 15%;
-  left: 5%;
-  width: 25%;
-  height: auto;
-  max-height: 55%;
+  left: 4.5%;
+  width: auto;
+  height: 27%;
   z-index: -100;
 }
 
@@ -470,7 +469,7 @@ button:hover {
   position: fixed;
   top: 8%;
   left: 1%;
-  height: 35;
+  height: 51.3%;
   width: auto;
   z-index: -101;
 }
