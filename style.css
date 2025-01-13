@@ -444,6 +444,7 @@ button:hover {
   left: 4.5%;
   width: auto;
   height: 27%;
+  max-height: 48%;
   z-index: -100;
 }
 
