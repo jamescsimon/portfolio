@@ -185,7 +185,7 @@ function updateGlows() {
                 glowYellowSprite.position.copy(hoveredStar.position);
                 glowYellowSprite.scale.set(45, 45, 1);
             } else if (hoveredStar.name === "pink") {
-                document.getElementById('projectCategory').textContent = "Artificual Intelligence & Machine Learning"; 
+                document.getElementById('projectCategory').textContent = "Artificial Intelligence & Machine Learning"; 
                 glowPinkSprite.visible = true;
                 glowPinkSprite.position.copy(hoveredStar.position);
                 glowPinkSprite.scale.set(45, 45, 1);
