@@ -7,7 +7,7 @@ import { EffectComposer } from 'https://cdn.skypack.dev/three@0.128.0/examples/j
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/loaders/GLTFLoader.js'; 
 
 //about me info
-const aboutMe = "Hello! My name is James, and I am a computer science and game design student based in Los Angeles. I grew up near NASA in Houston, which naturally came along with an affinity for space that influenced much of my work. This website is inspired by the three-body problem, reflecting my attempts to balance my three interest groups. I am deeply passionate about programming intuitive game engines with satisfying physics simulations, utilizing machine learning to generate photorealistic graphics, and enhancing interactive experiences to facilitate emergent mechanics. Thank you for visting my site!";
+const aboutMe = "Hello! My name is James, and I am a computer science and game design student based in Los Angeles. I grew up near NASA in Houston, which naturally came along with an affinity for space that influenced much of my work. This website is inspired by the three-body problem, reflecting my attempts to balance my three interest groups. I am deeply passionate about programming intuitive game engines with satisfying physics simulations, utilizing machine learning to generate photorealistic graphics, and enhancing interactive experiences to facilitate emergent mechanics. Thank you for visiting my site!";
 document.getElementById('aboutDesc').textContent = aboutMe;
 
 //scene set up
