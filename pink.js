@@ -85,7 +85,7 @@ let cmax = 1; // camera max (num planets)
 
 const planetNames = [
     "Artificial Intelligence / Machine Learning", 
-    "Introduction to Artificial Intelligence"
+    "Intro to A.I."
 
     //"Photorealistic Engine",
     //"Optimal Ad Placement", // in websites
