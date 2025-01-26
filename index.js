@@ -91,7 +91,7 @@ function generateFigure8Coordinates(stepSize) {
     return positions;
 }
 
-const stepSize = 0.0001; // Smaller time step for smooth motion
+const stepSize = 0.001; // Smaller time step for smooth motion
 const figure8Positions = generateFigure8Coordinates(stepSize);
 let timeStep = 0;
 document.getElementById('projectCategory').textContent = ""; 
@@ -239,8 +239,6 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
-
-
 
 window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
