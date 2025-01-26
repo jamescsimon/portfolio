@@ -91,6 +91,89 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   z-index: 10001;
 }
 
+#aboutHeader { /* about */
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 5vw;
+  z-index: 10001;
+  max-width: 200%;
+  white-space: nowrap;
+}
+
+#aboutDesc {  /* about */
+  position: absolute;
+  top: 28%;
+  left: 27%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2vw;
+  z-index: 10001;
+  max-width: 44%;
+  white-space: normal;
+}
+
+
+@media (max-width: 768px){ /* mobile */
+
+  lu { /* all pages, bottom copywrite statement */ /*adjusted!*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: rgb(113, 113, 113);
+    position: fixed;
+    font-size: 2vw;
+    bottom: 3%;
+    right: 3%;
+    z-index: 10000;
+  }
+
+  #menuTitle { /* index */ 
+    position: absolute;
+    top: 13%;
+    left: 25%;
+    color: white;
+    font-size: 5vw;
+    z-index: 10001;
+  }
+  
+  #menuDesc { /* index */ 
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 4vw;
+    z-index: 10001;
+  }
+  
+
+  #aboutHeader { /* about */
+    position: absolute;
+    top: 5%;
+    left: 18vw;
+    color: white;
+    font-size: 14vw;
+    z-index: 10001;
+    white-space: nowrap;
+  }
+
+  #aboutDesc {  /* about */
+    position: absolute;
+    top: 7%;
+    left: 8vw;
+    color: white;
+    font-size: 4vw;
+    z-index: 10001;
+    max-width: 84vw;
+    white-space: normal;
+  }
+
+}
+
 #projects-container {
   position: absolute;
   top: 25%;
@@ -269,17 +352,7 @@ canvas {
   max-width: 28%;
 }
 
-#aboutHeader {
-  position: absolute;
-  top: 15%;
-  left: 25%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 500%;
-  z-index: 10001;
-  max-width: 200%;
-  white-space: nowrap;
-}
+
 
 #contactHeader {
   position: absolute;
@@ -329,18 +402,6 @@ canvas {
   z-index: 10001;
   max-width: 200%;
   white-space: nowrap;
-}
-
-#aboutDesc {
-  position: absolute;
-  top: 28%;
-  left: 27%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 200%;
-  z-index: 10001;
-  max-width: 44%;
-  white-space: normal;
 }
 
 #skills {
