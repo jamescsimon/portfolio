@@ -1,4 +1,4 @@
-body, html {
+body, html { /* all pages */
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -7,16 +7,88 @@ body, html {
   background-color: black;
 }
 
-.kanit-thin {
+.kanit-thin { /* all pages */
   font-weight: 100;
 }
 
-#threejs-container {
+#threejs-container { /* all pages */
   position: absolute;
   top: 50px;
   left: 0;
   width: 100%;
   height: calc(100% - 50px);
+}
+
+ul { /* all pages, top tabs container */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+lu { /* all pages, bottom copywrite statement */ /*adjusted!*/
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: rgb(113, 113, 113);
+  position: fixed;
+  font-size: 1vw;
+  bottom: 3%;
+  right: 0%;
+  width: 25%;
+  z-index: 10000;
+}
+
+li { /* all pages, top tab boxes */
+  float: left;
+}
+
+li a { /* all pages, top tab word labels */
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover { /* all pages, top tab hover */
+  background-color: #111;
+}
+
+#menuTitle { /* index */ /*adjusted!*/
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 3vw;
+  z-index: 10001;
+}
+
+#menuDesc { /* index */ /*adjusted!*/
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2vw;
+  z-index: 10001;
+}
+
+#projectCategory { /* index */ /*adjusted!*/
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2vw;
+  z-index: 10001;
 }
 
 #projects-container {
@@ -120,77 +192,6 @@ canvas {
   opacity: 0;
   transform: translateY(-50%);
   z-index: 99999;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10000;
-}
-
-lu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  color: rgb(113, 113, 113);
-  position: fixed;
-  bottom: 3%;
-  right: 0%;
-  width: 25%;
-  z-index: 10000;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
-#menuTitle {
-  position: absolute;
-  top: 13%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 300%;
-  z-index: 10001;
-}
-
-#menuDesc {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 180%;
-  z-index: 10001;
-}
-
-#projectCategory {
-  position: absolute;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 200%;
-  z-index: 10001;
 }
 
 #planetName {
