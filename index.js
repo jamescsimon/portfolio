@@ -94,7 +94,6 @@ function generateFigure8Coordinates(stepSize) {
 const stepSize = 0.0001; // Smaller time step for smooth motion
 const figure8Positions = generateFigure8Coordinates(stepSize);
 let timeStep = 0;
-document.getElementById('projectCategory').textContent = ""; 
 const bs = scene.getObjectByName("blue");
 const ys = scene.getObjectByName("yellow");
 const ps = scene.getObjectByName("pink");
@@ -175,17 +174,14 @@ function updateGlows() {
 
             // Update glow sprite for the hovered star
             if (hoveredStar.name === "blue") {
-                document.getElementById('projectCategory').textContent = "Interactive Media Development"; 
                 glowBlueSprite.visible = true;
                 glowBlueSprite.position.copy(hoveredStar.position);
                 glowBlueSprite.scale.set(45, 45, 1);
             } else if (hoveredStar.name === "yellow") {
-                document.getElementById('projectCategory').textContent = "Physics Simulations & Game Engines";  
                 glowYellowSprite.visible = true;
                 glowYellowSprite.position.copy(hoveredStar.position);
                 glowYellowSprite.scale.set(45, 45, 1);
             } else if (hoveredStar.name === "pink") {
-                document.getElementById('projectCategory').textContent = "Artificial Intelligence & Machine Learning"; 
                 glowPinkSprite.visible = true;
                 glowPinkSprite.position.copy(hoveredStar.position);
                 glowPinkSprite.scale.set(45, 45, 1);
@@ -226,12 +222,12 @@ function animate() {
     glowYellowSprite.position.copy(ys.position);
     glowPinkSprite.position.copy(ps.position);
     
-    timeStep++;
+    timeStep += 4;
     
     // Self-rotation
-    bs.rotation.y += 0.001;
-    ys.rotation.y += 0.001;
-    ps.rotation.y -= 0.001;
+    bs.rotation.y += 0.01;
+    ys.rotation.y += 0.01;
+    ps.rotation.y -= 0.01;
 
     renderer.render(scene, camera);
 
