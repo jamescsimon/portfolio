@@ -226,7 +226,7 @@ function animate() {
     glowYellowSprite.position.copy(ys.position);
     glowPinkSprite.position.copy(ps.position);
     
-    timeStep += 3;
+    timeStep += 2;
     
     // Self-rotation
     bs.rotation.y += 0.001;
