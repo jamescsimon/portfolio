@@ -45,19 +45,19 @@ lu { /* all pages, bottom copywrite statement */ /*adjusted!*/
   z-index: 10000;
 }
 
-li { /* all pages, top tab boxes */
+li { /* all pages, top tab boxes */ /*adjusted!*/
   float: left;
 }
 
-li a { /* all pages, top tab word labels */
+li a { /* all pages, top tab word labels */ /*adjusted!*/
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 1.6vw;
   text-decoration: none;
 }
 
-li a:hover { /* all pages, top tab hover */
+li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   background-color: #111;
 }
 
