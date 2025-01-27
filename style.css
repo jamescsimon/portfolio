@@ -195,10 +195,10 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   
   #blueCategory {
     position: absolute;
-    bottom: 13%;
+    bottom: 38%;
     left: 50%;
-    max-width: 22%;
-    transform: translateX(-30%);
+    max-width: 30%;
+    transform: translateX(-50%);
     color: white;
     font-size: 4vw;
     z-index: 10001;
@@ -212,12 +212,12 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   
   #pinkCategory { /* index */ /*adjusted!*/
     position: absolute;
-    bottom: 13%;
+    bottom: 17%;
     left: 50%;
-    max-width: 23%;
-    transform: translateX(-148%);
+    max-width: 34%;
+    transform: translateX(-50%);
     color: white;
-    font-size: 2vw;
+    font-size: 4vw;
     z-index: 10001;
     transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
   }
@@ -229,12 +229,12 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
   #yellowCategory { /* index */ /*adjusted!*/
     position: absolute;
-    bottom: 13%;
+    bottom: 58%;
     left: 50%;
-    max-width: 23%;
-    transform: translateX(76%);
+    max-width: 34%;
+    transform: translateX(-50%);
     color: white;
-    font-size: 2vw;
+    font-size: 4vw;
     z-index: 10001;
     transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
   }
