@@ -217,7 +217,7 @@ const clock = new THREE.Clock();
 function animate() {
 
     const deltaTime = clock.getDelta();
-    const speed = 2;
+    const speed = 10;
     
     // camera vars
     camera.position.set(0, 1000, 0);
