@@ -167,7 +167,6 @@ document.getElementById('pinkCategory').addEventListener('click', () => {
     window.location.href = 'pink.html';
 });
 
-
 function updateGlows() {
     // Raycasting
     raycaster.setFromCamera(mouse, camera);
@@ -213,8 +212,13 @@ function updateGlows() {
     }
 }
 
+const clock = new THREE.Clock();
+
 function animate() {
 
+    const deltaTime = clock.getDelta();
+    const speed = 2;
+    
     // camera vars
     camera.position.set(0, 1000, 0);
     camera.lookAt(0, 0, 0);
@@ -226,7 +230,7 @@ function animate() {
     }
 
     // Update positions of the bodies
-    const positions = figure8Positions[timeStep];
+    const positions = figure8Positions[Math.floor(timeStep)];
     
     bs.position.set(positions.body1.x, positions.body1.y, positions.body1.z);
     ys.position.set(positions.body2.x, positions.body2.y, positions.body2.z);
@@ -237,7 +241,7 @@ function animate() {
     glowYellowSprite.position.copy(ys.position);
     glowPinkSprite.position.copy(ps.position);
     
-    timeStep += 4;
+     timeStep += speed * deltaTime * 60;
     
     // Self-rotation
     bs.rotation.y += 0.01;
