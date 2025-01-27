@@ -80,6 +80,16 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   z-index: 10001;
 }
 
+#projectCategory {
+  position: absolute;
+  bottom: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2vw;
+  z-index: 10001;
+}
+
 #blueCategory { /* index */ /*adjusted!*/
   position: absolute;
   bottom: 13%;
@@ -88,11 +98,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   transform: translateX(-30%);
   color: white;
   font-size: 2vw;
-  z-index: 10001;
-}
-
-#blueCategory:hover { /* doesn't work lol */
-  outline: #05daff;
+  z-index: -1;
 }
 
 #pinkCategory { /* index */ /*adjusted!*/
@@ -103,11 +109,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   transform: translateX(-148%);
   color: white;
   font-size: 2vw;
-  z-index: 10001;
-}
-
-#pinkCategory:hover {
-  outline: #ff77ed;
+  z-index: -1;
 }
 
 #yellowCategory { /* index */ /*adjusted!*/
@@ -118,11 +120,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   transform: translateX(76%);
   color: white;
   font-size: 2vw;
-  z-index: 10001;
-}
-
-#yellowCategory:hover {
-  outline: #ffd505;
+  z-index: -1;
 }
 
 #aboutHeader { /* about */
@@ -184,6 +182,17 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
     font-size: 4vw;
     z-index: 10001;
   }
+
+  #projectCategory { /* index */ /*adjusted!*/
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2vw;
+    z-index: -1;
+  }
+  
 
   #blueCategory { /* index */ /*adjusted!*/
     position: absolute;

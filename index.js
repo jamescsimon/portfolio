@@ -174,14 +174,17 @@ function updateGlows() {
 
             // Update glow sprite for the hovered star
             if (hoveredStar.name === "blue") {
+                document.getElementById('projectCategory').textContent = 'Interactive Media Design';
                 glowBlueSprite.visible = true;
                 glowBlueSprite.position.copy(hoveredStar.position);
                 glowBlueSprite.scale.set(45, 45, 1);
             } else if (hoveredStar.name === "yellow") {
+                document.getElementById('projectCategory').textContent = 'Physics Sims & Game Engines';
                 glowYellowSprite.visible = true;
                 glowYellowSprite.position.copy(hoveredStar.position);
                 glowYellowSprite.scale.set(45, 45, 1);
             } else if (hoveredStar.name === "pink") {
+                document.getElementById('projectCategory').textContent = 'AI / ML';
                 glowPinkSprite.visible = true;
                 glowPinkSprite.position.copy(hoveredStar.position);
                 glowPinkSprite.scale.set(45, 45, 1);
