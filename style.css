@@ -74,7 +74,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 #menuDesc { /* index */ /*adjusted!*/
   position: absolute;
   top: 20%;
-  left: 50%;
+  transform: translateX(208%);
   color: white;
   font-size: 2vw;
   z-index: 10001;
@@ -84,11 +84,15 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   position: absolute;
   bottom: 15%;
   left: 50%;
-  max-width: 23%;
-  transform: translateX(-38%);
+  max-width: 22%;
+  transform: translateX(-30%);
   color: white;
   font-size: 2vw;
   z-index: 10001;
+}
+
+#blueCategory:hover {
+  outline: #05daff;
 }
 
 #pinkCategory { /* index */ /*adjusted!*/
@@ -102,15 +106,23 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   z-index: 10001;
 }
 
+#pinkCategory:hover {
+  outline: #ff77ed;
+}
+
 #yellowCategory { /* index */ /*adjusted!*/
   position: absolute;
   bottom: 15%;
   left: 50%;
   max-width: 23%;
-  transform: translateX(-50%);
+  transform: translateX(76%);
   color: white;
   font-size: 2vw;
   z-index: 10001;
+}
+
+#yellowCategory:hover {
+  outline: #ffd505;
 }
 
 #aboutHeader { /* about */
@@ -157,6 +169,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
     position: absolute;
     top: 13%;
     left: 25%;
+    transform: translateX(0%);
     color: white;
     font-size: 5vw;
     z-index: 10001;
