@@ -82,7 +82,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
 #blueCategory { /* index */ /*adjusted!*/
   position: absolute;
-  bottom: 15%;
+  bottom: 13%;
   left: 50%;
   max-width: 22%;
   transform: translateX(-30%);
@@ -97,7 +97,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
 #pinkCategory { /* index */ /*adjusted!*/
   position: absolute;
-  bottom: 15%;
+  bottom: 13%;
   left: 50%;
   max-width: 23%;
   transform: translateX(-148%);
@@ -112,7 +112,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
 #yellowCategory { /* index */ /*adjusted!*/
   position: absolute;
-  bottom: 15%;
+  bottom: 13%;
   left: 50%;
   max-width: 23%;
   transform: translateX(76%);
