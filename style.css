@@ -91,7 +91,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   z-index: 10001;
 }
 
-#blueCategory:hover {
+#blueCategory:hover { /* doesn't work lol */
   outline: #05daff;
 }
 
@@ -143,7 +143,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   left: 27%;
   transform: translateX(-50%);
   color: white;
-  font-size: 2vw;
+  font-size: 200%;
   z-index: 10001;
   max-width: 44%;
   white-space: normal;
@@ -184,7 +184,39 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
     font-size: 4vw;
     z-index: 10001;
   }
+
+  #blueCategory { /* index */ /*adjusted!*/
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    max-width: 22%;
+    transform: translateX(-30%);
+    color: white;
+    font-size: 4vw;
+    z-index: 10001;
+  }
   
+  #pinkCategory { /* index */ /*adjusted!*/
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    max-width: 23%;
+    transform: translateX(-148%);
+    color: white;
+    font-size: 2vw;
+    z-index: 10001;
+  }
+
+  #yellowCategory { /* index */ /*adjusted!*/
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    max-width: 23%;
+    transform: translateX(76%);
+    color: white;
+    font-size: 2vw;
+    z-index: 10001;
+  }
 
   #aboutHeader { /* about */
     position: absolute;
