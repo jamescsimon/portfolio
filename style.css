@@ -165,10 +165,11 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
   #menuTitle { /* index */ 
     position: absolute;
-    top: 13%;
-    left: 25%;
-    transform: translateX(0%);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     color: white;
+    width:53%;
     font-size: 5vw;
     z-index: 10001;
   }
@@ -180,7 +181,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
     transform: translateX(-50%);
     color: white;
     font-size: 4vw;
-    z-index: 10001;
+    z-index: -1;
   }
 
   #projectCategory { /* index */ /*adjusted!*/

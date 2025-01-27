@@ -155,6 +155,18 @@ window.addEventListener('click', (event) => {
     }
 });
 
+document.getElementById('blueCategory').addEventListener('click', () => {
+    window.location.href = 'blue.html';
+});
+
+document.getElementById('yellowCategory').addEventListener('click', () => {
+    window.location.href = 'yellow.html';
+});
+
+document.getElementById('pinkCategory').addEventListener('click', () => {
+    window.location.href = 'pink.html';
+});
+
 
 function updateGlows() {
     // Raycasting
