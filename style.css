@@ -193,8 +193,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
     z-index: -1;
   }
   
-
-  #blueCategory { /* index */ /*adjusted!*/
+  #blueCategory {
     position: absolute;
     bottom: 13%;
     left: 50%;
@@ -203,6 +202,12 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
     color: white;
     font-size: 4vw;
     z-index: 10001;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  #blueCategory:hover {
+    color: lightblue; /* Change text color to light blue */
+    text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue; /* Add glowing effect */
   }
   
   #pinkCategory { /* index */ /*adjusted!*/
@@ -214,6 +219,12 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
     color: white;
     font-size: 2vw;
     z-index: 10001;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+  }
+
+  #pinkCategory:hover {
+    color: rgb(255, 106, 210); /* Change text color to light blue */
+    text-shadow: 0 0 10px rgb(255, 82, 235), 0 0 20px rgb(255, 81, 241), 0 0 30px rgb(255, 67, 249); /* Add glowing effect */
   }
 
   #yellowCategory { /* index */ /*adjusted!*/
@@ -225,6 +236,12 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
     color: white;
     font-size: 2vw;
     z-index: 10001;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+  }
+
+  #yellowCategory:hover {
+    color: rgb(255, 228, 22); /* Change text color to light blue */
+    text-shadow: 0 0 10px rgb(255, 223, 15), 0 0 20px rgb(255, 215, 17), 0 0 30px rgb(255, 206, 28); /* Add glowing effect */
   }
 
   #aboutHeader { /* about */
