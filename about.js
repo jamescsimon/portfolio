@@ -38,7 +38,7 @@ function adjustCameraForMobile() {
     if (frame) {
         // Set the camera position so that it faces the frame directly on mobile
         camera.position.set(frame.position.x - 20, frame.position.y, frame.position.z); // Adjust the Z offset as needed
-        camera.lookAt(frame.position.x, frame.position.y - 1.5, frame.position.z);
+        camera.lookAt(frame.position.x, frame.position.y - 2, frame.position.z);
         controls.target.set(frame.position); // Set OrbitControls to focus on the frame
     }
 }
