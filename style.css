@@ -137,7 +137,8 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
 #aboutDesc {  /* about */
   position: absolute;
-  top: 28%;
+  bottom: 7vw;
+  top: auto;
   left: 27%;
   transform: translateX(-50%);
   color: white;
