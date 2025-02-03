@@ -247,7 +247,7 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
   #aboutHeader { /* about */
      position: absolute;
-     top: 8%;
+     top: 10vw;
      left: 18vw;
      color: white;
      font-size: 14vw;
@@ -258,10 +258,10 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
  #aboutDesc { /* about */
      position: absolute;
-     top: 25%;
+     top: 30vw;
      left: 8vw;
      color: white;
-     font-size: 4vw;
+     font-size: 5vw;
      z-index: 10001;
      max-width: 84vw;
      white-space: normal;
