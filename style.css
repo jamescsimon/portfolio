@@ -672,8 +672,10 @@ button:hover {
 
   #contactInstructions {
   position: absolute;
-  top: 48vw;
-  left: 25vw;
+  bottom: 49.5vw;
+  top: auto;
+  right: 25vw;
+  left: auto;
   color: white;
   font-size: 3vw;
   z-index: 10001;
