@@ -302,13 +302,59 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   gap: 20px;
 }
 
+  #projectHeader {
+  position: absolute;
+  top: 16vw;
+  left: 35vw;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 475%;
+  z-index: 10001;
+  max-width: 200%;
+  white-space: nowrap;
+}
+
+  #skillsSearch {
+  position: absolute;
+  top: 24vw;
+  right: 3vw;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 10002;
+  font-size: 160%;
+  background: #2929296c;
+  border: 1px solid #fffdfd;
+  width: auto;
+  max-width: 31%;
+  overflow: hidden;
+}
+
+  #projects-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90vw;
+  max-width: 1200px;
+  height: 141vw;
+  padding: 10px;
+  margin: 0 auto;
+  overflow-y: auto;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.5);
+}
+
 }
 
 #projects-container {
   position: absolute;
   top: 25%;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%);
   display: flex;
   flex-direction: column;
   gap: 20px;
