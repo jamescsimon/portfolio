@@ -246,25 +246,27 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
   }
 
   #aboutHeader { /* about */
-    position: absolute;
-    top: 5%;
-    left: 18vw;
-    color: white;
-    font-size: 14vw;
-    z-index: 10001;
-    white-space: nowrap;
-  }
+     position: absolute;
+     top: 8%;
+     left: 18vw;
+     color: white;
+     font-size: 14vw;
+     z-index: 10001;
+     transform: translateX(0%);
+     white-space: nowrap;
+ }
 
-  #aboutDesc {  /* about */
-    position: absolute;
-    top: 7%;
-    left: 8vw;
-    color: white;
-    font-size: 4vw;
-    z-index: 10001;
-    max-width: 84vw;
-    white-space: normal;
-  }
+ #aboutDesc { /* about */
+     position: absolute;
+     top: 25%;
+     left: 8vw;
+     color: white;
+     font-size: 4vw;
+     z-index: 10001;
+     max-width: 84vw;
+     white-space: normal;
+     transform: translateX(0%);
+ }
 
 }
 
