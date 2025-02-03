@@ -547,8 +547,9 @@ button:hover {
     color: rgb(113, 113, 113);
     position: fixed;
     font-size: 2vw;
-    bottom: 3%;
+    bottom: 3vw;
     right: 3%;
+    width: auto;
     z-index: 10000;
   }
 
