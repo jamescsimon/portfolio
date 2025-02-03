@@ -15,7 +15,7 @@ const camera = new THREE.PerspectiveCamera(
     45, // distance from sun
     window.innerWidth / window.innerHeight, // aspect ratio
     0.1, // render min distance
-    1000 // render max distance
+    1500 // render max distance
 );
 
 const renderScene = new RenderPass(scene, camera);
