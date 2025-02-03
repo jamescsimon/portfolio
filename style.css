@@ -672,7 +672,7 @@ button:hover {
 
   #contactInstructions {
   position: absolute;
-  bottom: 49.5vw;
+  bottom: 52.5vw;
   top: auto;
   right: 25vw;
   left: auto;
@@ -687,7 +687,7 @@ button:hover {
   position: absolute;
   left: 8.5%;
   width: 80vw;
-  height: 70%;
+  height: 36%;
   top: 25vw;
   display: flex;
   flex-direction: column;
