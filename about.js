@@ -262,7 +262,7 @@ animate();
 const ambLight = new THREE.AmbientLight(0x404040, 5); 
 scene.add(ambLight);
 
-wwindow.addEventListener('resize', function () {
+window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
