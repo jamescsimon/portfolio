@@ -27,6 +27,23 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const BLOOM_LAYER = 1; // Bloom layer
 const DEFAULT_LAYER = 0; // Default layer
 
+//detect if on mobile
+function isMobileDevice() {
+    return window.innerWidth <= 768;
+}
+
+// Function to adjust the camera for mobile
+function adjustCameraForMobile() {
+    const frame = scene.getObjectByName("FloatingFrame");
+    if (frame) {
+        // Set the camera position so that it faces the frame directly on mobile
+        camera.position.set(frame.position.x, frame.position.y, frame.position.z + 5); // Adjust the Z offset as needed
+        camera.lookAt(frame.position);
+        controls.target.set(frame.position.x, frame.position.y, frame.position.z); // Set OrbitControls to focus on the frame
+    }
+}
+
+
 //load frame with GLBLoader
 const loader = new GLTFLoader();
 loader.load(
@@ -37,6 +54,10 @@ loader.load(
         frame.position.set(1, -1, 2.5);
         frame.layers.set(DEFAULT_LAYER);
         scene.add(frame);
+
+         if (isMobileDevice()) {
+            adjustCameraForMobile();
+        }
     },
     (xhr) => {
         console.log(`Loading progress: ${(xhr.loaded / xhr.total) * 100}%`);
@@ -241,10 +262,15 @@ animate();
 const ambLight = new THREE.AmbientLight(0x404040, 5); 
 scene.add(ambLight);
 
-window.addEventListener('resize', function () {
+wwindow.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Re-adjust camera if screen switches to mobile dimensions
+    if (isMobileDevice()) {
+        adjustCameraForMobile();
+    }
 });
 
 // Background
