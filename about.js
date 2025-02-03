@@ -37,9 +37,9 @@ function adjustCameraForMobile() {
     const frame = scene.getObjectByName("FloatingFrame");
     if (frame) {
         // Set the camera position so that it faces the frame directly on mobile
-        camera.position.set(frame.position.x, frame.position.y, frame.position.z + 5); // Adjust the Z offset as needed
+        camera.position.set(frame.position.x + 5, frame.position.y + 1, frame.position.z); // Adjust the Z offset as needed
         camera.lookAt(frame.position);
-        controls.target.set(frame.position.x, frame.position.y, frame.position.z); // Set OrbitControls to focus on the frame
+        controls.target.set(frame.position.x, frame.position.y + 1, frame.position.z); // Set OrbitControls to focus on the frame
     }
 }
 
