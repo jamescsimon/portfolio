@@ -268,6 +268,40 @@ li a:hover { /* all pages, top tab hover */ /*adjusted!*/
      transform: translateX(0%);
  }
 
+  #contactHeader {
+  position: absolute;
+  top: 19vw;
+  right: 17vw;
+  color: white;
+  font-size: 7.6vw;
+  z-index: 10001;
+  max-width: 200%;
+  white-space: nowrap;
+}
+
+  #contactInstructions {
+  position: absolute;
+  top: 48vw;
+  left: 25vw;
+  color: white;
+  font-size: 3vw;
+  z-index: 10001;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+  .contact-left {
+  position: absolute;
+  left: 8.5%;
+  width: 80vw;
+  height: 70%;
+  top: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
 }
 
 #projects-container {
