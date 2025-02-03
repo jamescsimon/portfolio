@@ -696,10 +696,10 @@ button:hover {
   #projectHeader {
   position: absolute;
   top: 16vw;
-  left: 35vw;
+  left: 31vw;
   transform: translateX(-50%);
   color: white;
-  font-size: 475%;
+  font-size: 400%;
   z-index: 10001;
   max-width: 200%;
   white-space: nowrap;
@@ -707,8 +707,10 @@ button:hover {
 
   #skillsSearch {
   position: absolute;
-  top: 24vw;
-  right: 3vw;
+  top: 21vw;
+  transform: translate(0%);
+  left: auto;
+  right: 8vw;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
