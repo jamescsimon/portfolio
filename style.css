@@ -777,4 +777,180 @@ button:hover {
   color: #ffffff;
 }
 
+  .monitor {
+  position: fixed;
+  top: 50vw;
+  left: 1%;
+  height: 30vw;
+  width: 52vw;
+}
+
+  .sight {
+    left: 200vw;
+}
+
+  .bonus {
+  position: fixed;
+  bottom: 94vw;
+  right: -0.5vw;
+  width: 45vw;
+  height: 36vw;
+  z-index: -101;
+}
+
+  .launch {
+  position: fixed;
+  bottom: 56vw;
+  left: 42.55%;
+  width: 15%;
+  height: auto;
+  z-index: -101;
+}
+
+  .rightArrow {
+  position: fixed;
+  bottom: 57vw;
+  right: 39.5%;
+  width: 3%;
+  height: auto;
+  z-index: 101;
+}
+
+.leftArrow {
+  position: fixed;
+  bottom: 57vw;
+  left: 39.5%;
+  width: 3%;
+  height: auto;
+  z-index: 101;
+}
+
+  .trailers {
+  position: fixed;
+  top: 54vw;
+  left: 4vw;
+  width: auto;
+  height: 16vw;
+  z-index: -100;
+}
+
+  #planetName {
+  position: absolute;
+  top: 27vw;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 8vw;
+  z-index: 10001;
+  max-width: 200%;
+  white-space: nowrap;
+}
+
+  #planetDesc {
+  position: absolute;
+  top: 38vw;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 4vw;
+  z-index: 10001;
+  max-width: 200%;
+  white-space: nowrap;
+}
+
+  #visitability {
+  position: absolute;
+  top: 57.7vw;
+  left: 50%;
+  width: 10%;
+  height: 1.5%;
+  transform: translateX(-50%);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2vw;
+  z-index: 10001;
+}
+
+  #overview {
+  position: absolute;
+  bottom: 61vw;
+  left: 4vw;
+  transform: translateX(0%);
+  color: white;
+  padding: 0px 0px;
+  border-radius: 0px;
+  font-size: 3vw;
+  z-index: 10002;
+  text-decoration: underline;
+}
+
+  #description {
+  position: absolute;
+  bottom: 65.5vw;
+  right: 11.5vw;
+  transform: translateX(0%);
+  color: white;
+  padding: 0px 0px;
+  border-radius: 0px;
+  font-size: 3vw;
+  z-index: 10005;
+  text-decoration: underline;
+}
+
+  #overviewDesc {
+  position: absolute;
+  bottom: 40vw;
+  left: 4vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0px 0px;
+  border-radius: 0px;
+  width: 51vw;
+  font-size: 2vw;
+  z-index: 100;
+}
+
+  #projectDesc {
+  position: absolute;
+  top: 101vw;
+  right: 1vw;
+  color: white;
+  padding: 0px 0px;
+  border-radius: 0px;
+  font-size: 2vw;
+  z-index: 100;
+  max-width: 36vw;
+}
+
+  #skills {
+  position: absolute;
+  top: 50vw;
+  right: 10vw;
+  transform: translateX(-50%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 3vw;
+  z-index: 10002;
+  text-decoration: underline;
+}
+
+  #skillList {
+  position: absolute;
+  top: 55vw;
+  left: 70vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 2vw;
+  z-index: 101;
+  max-width: 24%;
+  list-style-type: disc;
+}
+
+  
 }
