@@ -752,8 +752,8 @@ button:hover {
 }
 
 .project-pic {
-  width: 25vw;
-  height: 25vw;
+  width: 15vw;
+  height: 15vw;
   object-fit: cover;
   border-radius: 10px;
 }
