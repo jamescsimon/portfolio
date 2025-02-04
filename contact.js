@@ -125,7 +125,6 @@ loader.load(
     }
 );
 
-
 //lock camera
 controls.update = function() {};
 
@@ -165,10 +164,24 @@ animate();
 const ambLight = new THREE.AmbientLight(0x404040, 1); 
 scene.add(ambLight);
 
+function adjustCameraForDevice() {
+    if (window.innerWidth <= 768) { 
+        camera.position.set(0, 5, 10);  
+        camera.lookAt(0, 0, 0);     
+    } else { 
+        camera.position.set(-10, 0, 3); 
+        camera.lookAt(0, 0, 0);
+    }
+}
+
+adjustCameraForDevice();
+
 window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    adjustCameraForDevice(); 
 });
 
 // Background
