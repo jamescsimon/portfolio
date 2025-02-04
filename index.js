@@ -216,7 +216,7 @@ const clock = new THREE.Clock();
 
 function adjustCameraForDevice() {
     if (window.innerWidth <= 768) { 
-        camera.position.set(1000, 0, 0);  
+        camera.position.set(0, 0, 1000);  
         camera.up.set(0, 0, -1);          
     } else { 
         camera.position.set(0, 1000, 0);  
