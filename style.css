@@ -325,8 +325,6 @@ canvas {
   max-width: 28%;
 }
 
-
-
 #contactHeader {
   position: absolute;
   top: 16%;
@@ -697,11 +695,11 @@ button:hover {
 
   #projectHeader {
   position: absolute;
-  top: 16vw;
+  top: 14vw;
   left: 31vw;
   transform: translateX(-50%);
   color: white;
-  font-size: 400%;
+  font-size: 360%;
   z-index: 10001;
   max-width: 200%;
   white-space: nowrap;
@@ -712,12 +710,12 @@ button:hover {
   top: 21vw;
   transform: translate(0%);
   left: auto;
-  right: 8vw;
+  right: 9vw;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   z-index: 10002;
-  font-size: 160%;
+  font-size: 85%%;
   background: #2929296c;
   border: 1px solid #fffdfd;
   width: auto;
@@ -735,12 +733,48 @@ button:hover {
   gap: 10px;
   width: 90vw;
   max-width: 1200px;
-  height: 141vw;
+  height: 120vw;
   padding: 10px;
   margin: 0 auto;
   overflow-y: auto;
   z-index: 500;
   background: rgba(0, 0, 0, 0.5);
+}
+
+  .project {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-pic {
+  width: 25vw;
+  height: 25vw;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-details h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 7vw;
+  color: #ffffff;
+}
+
+.project-details p {
+  margin: 0;
+  font-weight: 100;
+  font-size: 4vw;
+  color: #ffffff;
 }
 
 }
