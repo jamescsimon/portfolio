@@ -777,9 +777,11 @@ button:hover {
   color: #ffffff;
 }
 
+  /* PROJECTS PAGES */
+
   .monitor {
   position: fixed;
-  top: 50vw;
+  top: 55vw;
   left: 1%;
   height: 30vw;
   width: 52vw;
@@ -791,43 +793,43 @@ button:hover {
 
   .bonus {
   position: fixed;
-  bottom: 94vw;
+  bottom: 93vw;
   right: -0.5vw;
-  width: 45vw;
+  width: 38vw;
   height: 36vw;
   z-index: -101;
 }
 
   .launch {
   position: fixed;
-  bottom: 56vw;
+  bottom: 61vw;
   left: 42.55%;
   width: 15%;
   height: auto;
   z-index: -101;
 }
 
-  .rightArrow {
+  .leftArrow {
   position: fixed;
-  top: 57vw;
-  right: 39.5%;
-  width: 3%;
+  bottom: 62vw;
+  left: 38%;
+  width: 4%;
   height: auto;
   z-index: 101;
 }
 
-.leftArrow {
+  .rightArrow {
   position: fixed;
-  top: 57vw;
-  left: 39.5%;
-  width: 3%;
+  bottom: 62vw;
+  right: 38%;
+  width: 4%;
   height: auto;
   z-index: 101;
 }
 
   .trailers {
   position: fixed;
-  top: 54vw;
+  top: 58.5vw;
   left: 4vw;
   width: auto;
   height: 16vw;
@@ -860,7 +862,7 @@ button:hover {
 
   #visitability {
   position: absolute;
-  top: 57.7vw;
+  bottom: 63vw;
   left: 50%;
   width: 10%;
   height: 1.5%;
@@ -876,21 +878,21 @@ button:hover {
 
   #overview {
   position: absolute;
-  bottom: 61vw;
+  bottom: 98vw;
   left: 4vw;
   transform: translateX(0%);
   color: white;
   padding: 0px 0px;
   border-radius: 0px;
-  font-size: 3vw;
+  font-size: 3.5vw;
   z-index: 10002;
   text-decoration: underline;
 }
 
   #description {
   position: absolute;
-  bottom: 65.5vw;
-  right: 11.5vw;
+  bottom: 84.5vw;
+  right: 5vw;
   transform: translateX(0%);
   color: white;
   padding: 0px 0px;
@@ -902,45 +904,45 @@ button:hover {
 
   #overviewDesc {
   position: absolute;
-  bottom: 40vw;
+  top: 87vw;
   left: 4vw;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 0px 0px;
   border-radius: 0px;
-  width: 51vw;
+  max-width: 27vw;
   font-size: 2vw;
   z-index: 100;
 }
 
   #projectDesc {
   position: absolute;
-  top: 101vw;
-  right: 1vw;
+  top: 100vw;
+  right: 2vw;
   color: white;
   padding: 0px 0px;
   border-radius: 0px;
   font-size: 2vw;
   z-index: 100;
-  max-width: 36vw;
+  max-width: 29vw;
 }
 
   #skills {
   position: absolute;
-  top: 50vw;
-  right: 10vw;
+  top: 53vw;
+  right: 7vw;
   transform: translateX(-50%);
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 3vw;
+  font-size: 3.5vw;
   z-index: 10002;
   text-decoration: underline;
 }
 
   #skillList {
   position: absolute;
-  top: 55vw;
+  top: 58vw;
   left: 70vw;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
