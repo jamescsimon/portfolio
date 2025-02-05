@@ -809,7 +809,7 @@ button:hover {
 
   .rightArrow {
   position: fixed;
-  bottom: 57vw;
+  top: 57vw;
   right: 39.5%;
   width: 3%;
   height: auto;
@@ -818,7 +818,7 @@ button:hover {
 
 .leftArrow {
   position: fixed;
-  bottom: 57vw;
+  top: 57vw;
   left: 39.5%;
   width: 3%;
   height: auto;
