@@ -904,7 +904,7 @@ button:hover {
 
   #overviewDesc {
   position: absolute;
-  top: 106vw;
+  top: 115vw;
   left: 3vw;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -942,11 +942,11 @@ button:hover {
 
   #skillList {
   position: absolute;
-  top: 58vw;
+  top: 59vw;
   left: 69vw;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  padding: 10px 20px;
+  padding: 5px 20px;
   font-size: 2vw;
   z-index: 101;
   max-width: 24%;
