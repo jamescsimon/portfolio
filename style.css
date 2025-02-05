@@ -955,23 +955,23 @@ button:hover {
 
   #rB {
   position: absolute;
-  bottom: 14.5%;
-  right: 39.5%;
-  width: 3%;
-  height: 5.5%;
-  opacity: 0.5;
-  transform: translateY(-50%);
+  bottom: 17vw;
+  right: 22%;
+  width: 10%;
+  height: 10vw;
+  opacity: 0;
+  transform: translateY(0%);
   z-index: 99999;
 }
 
 #lB {
   position: absolute;
-  bottom: 14.5%;
-  left: 39.5%;
-  width: 3%;
-  height: 5.5%;
-  opacity: 0.5;
-  transform: translateY(-50%);
+  bottom: 17vw;
+  left: 22%;
+  width: 10%;
+  height: 10vw;
+  opacity: 0;
+  transform: translateY(0%);
   z-index: 99999;
 }
 
