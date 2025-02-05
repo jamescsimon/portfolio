@@ -106,11 +106,11 @@ window.addEventListener('DOMContentLoaded', initializeSkillsSection);
 document.getElementById('skills').textContent = 'Skills';
 
 const planetNames = [
-    "Physics Simulations & Game Engines", 
-    "Fluid Sims",
-    "Quant.io", 
-    "Three-body Portfolio", 
-    "Sim. & Prod. Systems"
+    "Physics Simulations & Game Engines", //0
+    "Fluid Sim", //1
+    "Quant.io", //2
+    "Three-body Portfolio", //3
+    "Sims & DI" //4
 ];
 
 const planetDescriptions = [
