@@ -196,6 +196,8 @@ function animate() {
         mercury.mesh.remove(camera);
         document.getElementById('overview').textContent = "";
         document.getElementById('description').textContent = "";
+        document.getElementById('skillList').style.zIndex = '-101';
+        document.getElementById('overviewDesc').style.zIndex = '-101'; 
         document.getElementById('skills').textContent = "";
     } 
 
@@ -245,6 +247,8 @@ window.camNext = function () {
         camera.position.set(-30, 0, 40);
         camera.lookAt(0, 0, 0);
         mercury.mesh.add(camera);
+        document.getElementById('skillList').style.zIndex = '101';
+        document.getElementById('overviewDesc').style.zIndex = '101'; 
         document.getElementById('overview').textContent = "Job Overview";
         document.getElementById('description').textContent = "Project Description";
         document.getElementById('skills').textContent = "Skills";
@@ -287,6 +291,8 @@ window.camPrev = function () {
         mercury.mesh.remove(camera);
         monitor.style.zIndex = '-101';
         sights.style.zIndex = '-101';
+        document.getElementById('skillList').style.zIndex = '-101';
+        document.getElementById('overviewDesc').style.zIndex = '-101'; 
         bonus.style.zIndex = '-101';
         launchButton.style.zIndex = '-101';
         mercuryGif.style.zIndex = '-100'; 
