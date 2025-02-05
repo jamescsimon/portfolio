@@ -130,6 +130,26 @@ let angleRed = 0;  // Orbital X movement
 let angleOrange = Math.PI / 2; // Offset by 90 degrees
 const speed = 0.009;
 
+let shootingStars = [];
+let deltaElev = 25;
+const glowTexture = textureLoader.load('./images/cometTrail.png');
+const glowMaterial = new THREE.SpriteMaterial({ map: glowTexture, color: 0xffffff, blending: THREE.AdditiveBlending });
+
+function createComet(size, elevation) {
+    const cometGeo = new THREE.SphereGeometry(size / 2, 6, 6);
+    const cometMat = new THREE.MeshBasicMaterial({ map: textureLoader.load('./images/white.png') });
+    const comet = new THREE.Mesh(cometGeo, cometMat);
+    comet.position.set(-100, elevation - 5, 0);
+    scene.add(comet);
+
+    const glowSprite = new THREE.Sprite(glowMaterial); // Reuse material
+    glowSprite.scale.set(100 * size, 2.5 * size, size);
+    glowSprite.position.copy(comet.position);
+    scene.add(glowSprite);
+
+    shootingStars.push({ star: comet, light: glowSprite });
+}
+
 //lock camera
 controls.update = function() {};
 
@@ -256,6 +276,22 @@ function animate() {
         angleOrange += speed; // Increment angle
     }
 
+    let n = Math.random(); 
+    
+    if (n < 0.001) { 
+        createComet(n * 1000, (-1 * deltaElev) + (n * 100000)); 
+    } 
+    
+    shootingStars = shootingStars.filter(comet => {
+        if (comet.star.position.x > 75) {
+            scene.remove(comet.star);
+            scene.remove(comet.light);
+            return false; // Remove from the array
+        }
+        comet.star.position.x += 1;
+        comet.light.position.copy(comet.star.position);
+        return true; // Keep in the array
+    });  
 }
 animate();
 
@@ -270,6 +306,14 @@ window.addEventListener('resize', function () {
     // Re-adjust camera if screen switches to mobile dimensions
     if (isMobileDevice()) {
         adjustCameraForMobile();
+    }
+});
+
+window.addEventListener('keydown', function (event) { 
+    if (event.code === 'Space') { 
+        const size = Math.random() * 0.5 + 0.1; 
+        const elevation = Math.random() * 40 - 20; 
+        createComet(size, elevation); 
     }
 });
 
