@@ -48,11 +48,18 @@
     <script type="module" src="/portfolio/blue.js"></script> <!-- Linked! -->
     <script>
         const rBtn = document.getElementById("rB");
-        rBtn.addEventListener("click", function(e) {
+        rBtn.addEventListener("click", function () {
             camNext();
         });
+        rBtn.addEventListener("touchstart", function () {
+            camNext();
+        });
+
         const lBtn = document.getElementById("lB");
-        lBtn.addEventListener("click", function(e) {
+        lBtn.addEventListener("click", function () {
+            camPrev();
+        });
+        lBtn.addEventListener("touchstart", function () {
             camPrev();
         });
     </script>
