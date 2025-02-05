@@ -167,7 +167,7 @@ scene.add(ambLight);
 function adjustCameraForDevice() {
     if (window.innerWidth <= 768) { 
         camera.position.set(-12, 0, 12);  
-        camera.lookAt(0, 4, -1);     
+        camera.lookAt(0, 3, -1);     
     } else { 
         camera.position.set(-10, 0, 3); 
         camera.lookAt(0, 0, 0);
