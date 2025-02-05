@@ -153,10 +153,10 @@ const projectDesc = [ // project description
 
 const skills = [
     [], // • bullet point 
-    ["C# for Unity", "Game Design/Development", "Problem Solving/Resourcefulness", "Project Planning/Management", "Software Architecture & Development", "Team Collaboration/Communication", "U.I./U.X. Design"],
-    ["C# for Unity", "Game Design/Development", "iOS Mobile App Development", "Problem Solving/Resourcefulness", "Project Planning/Management", "Technical Writing/Documentation", "U.I./U.X. Design",],
+    ["C# for Unity", "Game Design/Development", "Project Planning/Management", "Software Architecture & Development", "Team Collaboration/Communication", "U.I./U.X. Design"],
+    ["C# for Unity", "Game Design/Development", "iOS Mobile App Development", "Project Planning/Management", "Technical Writing/Documentation", "U.I./U.X. Design",],
     ["C# for Unity", "Game Design/Development", "Project Planning/Management", "Q.A. Testing & Data Analysis", "Team Collaboration/Communication", "Technical Writing/Documentation", "U.I./U.X. Design"],
-    ["Blender Modeling", "Lua for Roblox Studio", "Game Design/Development", "Post-Processing and Shaders", "Problem Solving/Resourcefulness", "Technical Writing/Documentation", "U.I./U.X. Design"]
+    ["Blender Modeling", "Lua for Roblox Studio", "Game Design/Development", "Post-Processing and Shaders","Technical Writing/Documentation", "U.I./U.X. Design"]
 ]
 
 function updateText() {
