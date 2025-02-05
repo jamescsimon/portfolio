@@ -793,7 +793,7 @@ button:hover {
 
   .bonus {
   position: fixed;
-  bottom: 93vw;
+  top: 93vw;
   right: -0.5vw;
   width: 38vw;
   height: 36vw;
@@ -802,27 +802,27 @@ button:hover {
 
   .launch {
   position: fixed;
-  bottom: 61vw;
-  left: 42.55%;
-  width: 15%;
+  bottom: 17vw;
+  left: 37.6%;
+  width: 25%;
   height: auto;
   z-index: -101;
 }
 
   .leftArrow {
   position: fixed;
-  bottom: 62vw;
-  left: 38%;
-  width: 4%;
+  bottom: 17vw;
+  left: 22%;
+  width: 10%;
   height: auto;
   z-index: 101;
 }
 
   .rightArrow {
   position: fixed;
-  bottom: 62vw;
-  right: 38%;
-  width: 4%;
+  bottom: 17vw;
+  right: 22%;
+  width: 10%;
   height: auto;
   z-index: 101;
 }
@@ -862,9 +862,9 @@ button:hover {
 
   #visitability {
   position: absolute;
-  bottom: 63vw;
+  bottom: 21.5vw;
   left: 50%;
-  width: 10%;
+  width: 25%;
   height: 1.5%;
   transform: translateX(-50%);
   color: black;
@@ -872,13 +872,13 @@ button:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 2vw;
+  font-size: 4vw;
   z-index: 10001;
 }
 
   #overview {
   position: absolute;
-  bottom: 98vw;
+  bottom: 84vw;
   left: 4vw;
   transform: translateX(0%);
   color: white;
@@ -891,8 +891,8 @@ button:hover {
 
   #description {
   position: absolute;
-  bottom: 84.5vw;
-  right: 5vw;
+  bottom: 70.5vw;
+  right: 5.4vw;
   transform: translateX(0%);
   color: white;
   padding: 0px 0px;
@@ -943,11 +943,10 @@ button:hover {
   #skillList {
   position: absolute;
   top: 58vw;
-  left: 70vw;
+  left: 64vw;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  padding: 10px 10px;
-  border-radius: 5px;
+  padding: 10px 27px;
   font-size: 2vw;
   z-index: 101;
   max-width: 24%;
