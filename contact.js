@@ -131,7 +131,7 @@ controls.update = function() {};
 //position frame
 camera.position.set(-10, 0, 0);
 camera.lookAt(0, 0, 0);
-//camera.position.set(-10, 0, 3);
+camera.position.set(-10, 0, 3);
 
 //effects
 const renderScene = new RenderPass(scene, camera);
@@ -166,8 +166,8 @@ scene.add(ambLight);
 
 function adjustCameraForDevice() {
     if (window.innerWidth <= 768) { 
-        camera.position.set(-10, 0, 10);  
-        camera.lookAt(0, 5, 0);     
+        camera.position.set(-12, 0, 12);  
+        camera.lookAt(0, 4, -1);     
     } else { 
         camera.position.set(-10, 0, 3); 
         camera.lookAt(0, 0, 0);
