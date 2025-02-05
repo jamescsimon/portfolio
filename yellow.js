@@ -107,17 +107,17 @@ document.getElementById('skills').textContent = 'Skills';
 
 const planetNames = [
     "Physics Simulations & Game Engines", 
-    "Clothes Sims",
-    "Quantum Engine", 
-    "Fluid Sims", 
+    "Fluid Sims",
+    "Quant.io", 
+    "Three-body Portfolio", 
     "Sim. & Prod. Systems"
 ];
 
 const planetDescriptions = [
     "Projects Timeline", 
-    "Passion project | 2025+", 
+    "Personal project | 2025+", 
     "Harvard Quantumn Shorts Submission | 2025", 
-    "Personal project | 2024+", 
+    "Portfolio Website | 2024+", 
     "USC Rocket Propulsion Lab | 2024+"
 ];
 
@@ -131,26 +131,26 @@ const visitability = [
 
 const projectDesc = [
     "",
-    "Followed tutorials online to self-instruct basics on clothing physics simulations, along with course work on physics programming and rendering for game engines. Not yet at a stage of completion.",
-    "Prospective submission to the Harvard Quantumn Shorts Contest, which has yet to be announced for 2025. Not yet at a stage of completion.",
     "Followed tutorials online to self-instruct basics on fluid dynamics simulations, along with course work on physics programming and rendering for game engines. Not yet at a stage of completion.",
+    "Prospective submission to the Harvard Quantumn Shorts Contest, which has yet to be announced for 2025. Not yet at a stage of completion.",
+    "Developed from scratch using modern web technologies, this website showcases my ability to integrate 3D simulations with three.js while building a (hopefully) clean and responsive portfolio.",
     "Membership in this club at my university has tasked me with familarizing myself with git, collaborative coding enviroments, and aerospace engineering in general."
 ]
 
 const overviewDescriptions = [ // project description
     "",
-    "",
-    "",
-    "",
+    "This project provided a foundation in simulating realistic fluid behaviors, improving my understanding of physics-based rendering and dynamics programming.",
+    "3D multiplayer .io game inspired by Agar.io, incorporating quantum mechanics principles into its core gameplay. The goal is to teach quantum mechanics in a fun and engaging way through strategic interactions.",
+    "Designed, programmed, and deployed--this was my first attempt at making a perfesional website from scratch. This project taught me the basics of both web development and simulating complex celestial systems.",
     "Refactor dated code to be more concise and efficient within modern infrastructure, generated simulations for engine combustion based on fuel composition, and updated online materials ordering service for the engineering teams."
 ]
 
 const skills = [
-    [], // • bullet point 
     [],
-    [],
-    [],
-    ["Coding in Collaborative Enviroments", "Problem Solving/Resourcefulness", "Physics Simulations with Python", "U.I./U.X. Design", "Web Design with HTML, JavaScript, & CSS"]
+    ["C# for Unity", "Physics Programming", "Simulation Development"],
+    ["C# for Unity", "Game Design/Development", "Physics Programming", "Quantum Mechanics", "Simulation Development", "Technical Writing/Documentation"],
+    ["Blender Modeling", "Full Stack Web Development", "Physics Programming", "Post-Processing and Shaders", "Three.js", "U.I./U.X. Design"],
+    ["Collaborative Coding", "Full Stack Web Development", "Git Workflows", "Physics Programming", "Simulation Development", "U.I./U.X. Design"]
 ]
 
 
