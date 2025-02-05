@@ -139,7 +139,7 @@ function createComet(size, elevation) {
     const cometGeo = new THREE.SphereGeometry(size / 2, 6, 6);
     const cometMat = new THREE.MeshBasicMaterial({ map: textureLoader.load('./images/white.png') });
     const comet = new THREE.Mesh(cometGeo, cometMat);
-    comet.position.set(-100, elevation - 5, 0);
+    comet.position.set(0, elevation - 5, -100);
     scene.add(comet);
 
     const glowSprite = new THREE.Sprite(glowMaterial); // Reuse material
@@ -278,17 +278,17 @@ function animate() {
 
     let n = Math.random(); 
     
-    if (n < 0.001) { 
+    if (n < 0.003) { 
         createComet(n * 1000, (-1 * deltaElev) + (n * 100000)); 
     } 
     
     shootingStars = shootingStars.filter(comet => {
-        if (comet.star.position.x > 75) {
+        if (comet.star.position.z > 75) {
             scene.remove(comet.star);
             scene.remove(comet.light);
             return false; // Remove from the array
         }
-        comet.star.position.x += 1;
+        comet.star.position.z += 1;
         comet.light.position.copy(comet.star.position);
         return true; // Keep in the array
     });  
