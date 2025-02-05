@@ -842,7 +842,7 @@ button:hover {
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 8vw;
+  font-size: 5vw;
   z-index: 10001;
   max-width: 200%;
   white-space: nowrap;
@@ -904,8 +904,7 @@ button:hover {
 
   #overviewDesc {
   position: absolute;
-  bottom: 40vw;
-  top: auto;
+  top: 106vw;
   left: 3vw;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
