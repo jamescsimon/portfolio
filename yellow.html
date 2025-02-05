@@ -47,19 +47,13 @@
     <canvas class="webgl"></canvas>
     <script type="module" src="/portfolio/yellow.js"></script> <!-- Linked! -->
     <script>
-         const rBtn = document.getElementById("rB");
+        const rBtn = document.getElementById("rB");
         rBtn.addEventListener("click", function () {
-            camNext();
-        });
-        rBtn.addEventListener("touchstart", function () {
             camNext();
         });
 
         const lBtn = document.getElementById("lB");
         lBtn.addEventListener("click", function () {
-            camPrev();
-        });
-        lBtn.addEventListener("touchstart", function () {
             camPrev();
         });
     </script>
