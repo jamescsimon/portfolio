@@ -236,14 +236,19 @@ window.camNext = function () {
         updateText();
     }
 
-    if (ci == 1) { // mercury
+      if (ci == 1) { // mercury
         camera.position.set(-30, 0, 40);
         camera.lookAt(0, 0, 0);
         mercury.mesh.add(camera);
+        document.getElementById('skillList').style.zIndex = '101';
+        document.getElementById('overviewDesc').style.zIndex = '101'; 
+        document.getElementById('overview').textContent = "Job Overview";
         document.getElementById('description').textContent = "Project Description";
+        document.getElementById('skills').textContent = "Skills";
         monitor.style.zIndex = '90';
+        sights.style.zIndex = '90';
         bonus.style.zIndex = '90';
-        //launchButton.style.zIndex = '90';
+        launchButton.style.zIndex = '90';
         mercuryGif.style.zIndex = '100'; 
     } else if (ci == 2) { // venus
         venus.mesh.add(camera);
@@ -255,18 +260,11 @@ window.camNext = function () {
         venus.mesh.remove(camera);
         venusGif.style.zIndex = '-100'; 
         earthGif.style.zIndex = '100'; 
-        sights.style.zIndex = '-101';
-
     } else if (ci == 4) { // mars
         mars.mesh.add(camera);
         earth.mesh.remove(camera);
-        sights.style.zIndex = '90';
-        mercuryGif.style.zIndex = '-100'; 
-        venusGif.style.zIndex = '-100'; 
         earthGif.style.zIndex = '-100'; 
         marsGif.style.zIndex = '100'; 
-        document.getElementById('skills').textContent = "Skills";
-        document.getElementById('overview').textContent = "Job Overview";
     }
 };
 
@@ -282,12 +280,12 @@ window.camPrev = function () {
 
     if (ci == 0) { // sun
         camera.position.set(150, 0, 0);
-        console.log("camera.position.set(150, 0, 0);")
         camera.lookAt(0, 0, 0);
-        console.log("camera.lookAt(0, 0, 0);")
         mercury.mesh.remove(camera);
         monitor.style.zIndex = '-101';
         sights.style.zIndex = '-101';
+        document.getElementById('skillList').style.zIndex = '-101';
+        document.getElementById('overviewDesc').style.zIndex = '-101'; 
         bonus.style.zIndex = '-101';
         launchButton.style.zIndex = '-101';
         mercuryGif.style.zIndex = '-100'; 
@@ -306,9 +304,6 @@ window.camPrev = function () {
         mars.mesh.remove(camera);
         marsGif.style.zIndex = '-100';
         earthGif.style.zIndex = '100';  
-        sights.style.zIndex = '-101';
-        document.getElementById('skills').textContent = "";
-        document.getElementById('overview').textContent = "";
     } 
 };
 
