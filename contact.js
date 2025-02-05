@@ -131,7 +131,7 @@ controls.update = function() {};
 //position frame
 camera.position.set(-10, 0, 0);
 camera.lookAt(0, 0, 0);
-camera.position.set(-10, 0, 3);
+//camera.position.set(-10, 0, 3);
 
 //effects
 const renderScene = new RenderPass(scene, camera);
