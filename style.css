@@ -878,7 +878,7 @@ button:hover {
 
   #overview {
   position: absolute;
-  bottom: 54vw;
+  bottom: 60vw;
   left: 4vw;
   transform: translateX(0%);
   color: white;
@@ -904,7 +904,7 @@ button:hover {
 
   #overviewDesc {
   position: absolute;
-  top: 115vw;
+  top: 110vw;
   left: 3vw;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
