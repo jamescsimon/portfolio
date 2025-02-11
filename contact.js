@@ -81,7 +81,7 @@ loader.load(
     (gltf) => {
         const bottomShip = gltf.scene;
         bottomShip.name = "bottom"; // Set a name for easy reference
-        bottomShip.position.set(0, -10, 0);
+        bottomShip.position.set(0, -10, 0); 
         scene.add(bottomShip);
     },
     (xhr) => {
@@ -165,12 +165,14 @@ const ambLight = new THREE.AmbientLight(0x404040, 1);
 scene.add(ambLight);
 
 function adjustCameraForDevice() {
-    if (window.innerWidth <= 768) { 
+    if (window.innerWidth <= 768) { // mobile
         camera.position.set(-12, 0, 12);  
-        camera.lookAt(0, 3, -1);     
-    } else { 
+        camera.lookAt(0, 3, -1);    
+        console.log("MOBILE VIEW");
+    } else { // PC
         camera.position.set(-10, 0, 3); 
         camera.lookAt(0, 0, 0);
+        console.log("PC VIEW")
     }
 }
 
