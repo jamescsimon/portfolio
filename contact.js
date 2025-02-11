@@ -170,8 +170,9 @@ function adjustCameraForDevice() {
         camera.lookAt(0, 3, -1);    
         console.log("MOBILE VIEW");
     } else { // PC
-        camera.position.set(-10, 0, 3); 
+        camera.position.set(-10, 0, 0);
         camera.lookAt(0, 0, 0);
+        camera.position.set(-10, 0, 3);
         console.log("PC VIEW")
     }
 }
