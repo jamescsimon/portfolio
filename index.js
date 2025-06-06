@@ -15,7 +15,7 @@ const camera = new THREE.PerspectiveCamera(
     45, // distance from sun
     window.innerWidth / window.innerHeight, // aspect ratio
     0.1, // render min distance
-    1000 // render max distance
+    1500 // render max distance
 );
 
 const renderScene = new RenderPass(scene, camera);
@@ -214,14 +214,30 @@ function updateGlows() {
 
 const clock = new THREE.Clock();
 
+function adjustCameraForDevice() {
+    if (window.innerWidth <= 768) { 
+        camera.position.set(0, 1500, 0);  
+        camera.up.set(1, 0, 0);          
+    } else { 
+        camera.position.set(0, 1000, 0);  
+        camera.up.set(0, 1, 0);          
+    }
+    camera.lookAt(0, 0, 0); 
+}
+
+adjustCameraForDevice();
+
+window.addEventListener('resize', function () {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    adjustCameraForDevice();
+});
+
 function animate() {
 
     const deltaTime = clock.getDelta();
     const speed = 10;
-    
-    // camera vars
-    camera.position.set(0, 1000, 0);
-    camera.lookAt(0, 0, 0);
 
     updateGlows();
     
@@ -229,26 +245,20 @@ function animate() {
         timeStep = 0; //restart
     }
 
-    // Update positions of the bodies
     const positions = figure8Positions[Math.floor(timeStep)];
-    
     bs.position.set(positions.body1.x, positions.body1.y, positions.body1.z);
     ys.position.set(positions.body2.x, positions.body2.y, positions.body2.z);
     ps.position.set(positions.body3.x, positions.body3.y, positions.body3.z);
 
-    // Update glow positions to follow their respective stars
     glowBlueSprite.position.copy(bs.position);
     glowYellowSprite.position.copy(ys.position);
     glowPinkSprite.position.copy(ps.position);
     
-     timeStep += speed * deltaTime * 60;
+    timeStep += speed * deltaTime * 60;
     
-    // Self-rotation
     bs.rotation.y += 0.01;
     ys.rotation.y += 0.01;
     ps.rotation.y -= 0.01;
-
-    renderer.render(scene, camera);
 
     composer.render();
     requestAnimationFrame(animate);

@@ -27,6 +27,23 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const BLOOM_LAYER = 1; // Bloom layer
 const DEFAULT_LAYER = 0; // Default layer
 
+//detect if on mobile
+function isMobileDevice() {
+    return window.innerWidth <= 768;
+}
+
+// Function to adjust the camera for mobile
+function adjustCameraForMobile() {
+    const frame = scene.getObjectByName("FloatingFrame");
+    if (frame) {
+        // Set the camera position so that it faces the frame directly on mobile
+        camera.position.set(frame.position.x - 20, frame.position.y, frame.position.z); // Adjust the Z offset as needed
+        camera.lookAt(frame.position.x, frame.position.y - 2, frame.position.z);
+        controls.target.set(frame.position); // Set OrbitControls to focus on the frame
+    }
+}
+
+
 //load frame with GLBLoader
 const loader = new GLTFLoader();
 loader.load(
@@ -37,6 +54,10 @@ loader.load(
         frame.position.set(1, -1, 2.5);
         frame.layers.set(DEFAULT_LAYER);
         scene.add(frame);
+
+         if (isMobileDevice()) {
+            adjustCameraForMobile();
+        }
     },
     (xhr) => {
         console.log(`Loading progress: ${(xhr.loaded / xhr.total) * 100}%`);
@@ -108,6 +129,26 @@ let angleBlue = 0; // Vertical orbit
 let angleRed = 0;  // Orbital X movement
 let angleOrange = Math.PI / 2; // Offset by 90 degrees
 const speed = 0.009;
+
+let shootingStars = [];
+let deltaElev = 25;
+const glowTexture = textureLoader.load('./images/cometTrail.png');
+const glowMaterial = new THREE.SpriteMaterial({ map: glowTexture, color: 0xffffff, blending: THREE.AdditiveBlending });
+
+function createComet(size, elevation) {
+    const cometGeo = new THREE.SphereGeometry(size / 2, 6, 6);
+    const cometMat = new THREE.MeshBasicMaterial({ map: textureLoader.load('./images/white.png') });
+    const comet = new THREE.Mesh(cometGeo, cometMat);
+    comet.position.set(0, elevation - 5, -100);
+    scene.add(comet);
+
+    const glowSprite = new THREE.Sprite(glowMaterial); // Reuse material
+    glowSprite.scale.set(100 * size, 2.5 * size, size);
+    glowSprite.position.copy(comet.position);
+    scene.add(glowSprite);
+
+    shootingStars.push({ star: comet, light: glowSprite });
+}
 
 //lock camera
 controls.update = function() {};
@@ -235,6 +276,22 @@ function animate() {
         angleOrange += speed; // Increment angle
     }
 
+    let n = Math.random(); 
+    
+    if (n < 0.003) { 
+        createComet(n * 1000, (-1 * deltaElev) + (n * 100000)); 
+    } 
+    
+    shootingStars = shootingStars.filter(comet => {
+        if (comet.star.position.z > 75) {
+            scene.remove(comet.star);
+            scene.remove(comet.light);
+            return false; // Remove from the array
+        }
+        comet.star.position.z += 1;
+        comet.light.position.copy(comet.star.position);
+        return true; // Keep in the array
+    });  
 }
 animate();
 
@@ -245,6 +302,19 @@ window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Re-adjust camera if screen switches to mobile dimensions
+    if (isMobileDevice()) {
+        adjustCameraForMobile();
+    }
+});
+
+window.addEventListener('keydown', function (event) { 
+    if (event.code === 'Space') { 
+        const size = Math.random() * 0.5 + 0.1; 
+        const elevation = Math.random() * 40 - 20; 
+        createComet(size, elevation); 
+    }
 });
 
 // Background

@@ -175,6 +175,8 @@ function animate() {
         mercury.mesh.remove(camera);
         document.getElementById('overview').textContent = "";
         document.getElementById('description').textContent = "";
+        document.getElementById('skillList').style.zIndex = '-101';
+        document.getElementById('overviewDesc').style.zIndex = '-101'; 
         document.getElementById('skills').textContent = "";
     } 
 

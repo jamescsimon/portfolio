@@ -11,7 +11,7 @@ const projects = [
     {
         name: "Blackout",
         description: "First passion project | 2019-23",
-        skills: ["Blender Modeling", "Lua for Roblox Studio", "Game Design/Development", "Post-Processing and Shaders", "Problem Solving/Resourcefulness", "Technical Writing/Documentation", "U.I./U.X. Design"],
+        skills: ["Blender Modeling", "Lua for Roblox Studio", "Game Design/Development", "Post-Processing and Shaders", "Technical Writing/Documentation", "U.I./U.X. Design"],
         pic: 'images/blackout.gif',
         target: 'blue.html',
         ci: 4
@@ -29,7 +29,7 @@ const projects = [
     {
         name: "Cat Counselor",
         description: "Sloan Grant application | 2023-24",
-        skills: ["C# for Unity", "Game Design/Development", "iOS Mobile App Development", "Problem Solving/Resourcefulness", "Project Planning/Management", "Technical Writing/Documentation", "U.I./U.X. Design"],
+        skills: ["C# for Unity", "Game Design/Development", "iOS Mobile App Development", "Project Planning/Management", "Technical Writing/Documentation", "U.I./U.X. Design"],
         pic: 'images/CatCounselor.gif',
         target: 'blue.html',
         ci: 2
@@ -38,14 +38,41 @@ const projects = [
     {
         name: "BREAK",
         description: "Passion project | 2023+",
-        skills: ["C# for Unity", "Game Design/Development", "Problem Solving/Resourcefulness", "Project Planning/Management", "Software Architecture & Development", "Team Collaboration/Communication", "U.I./U.X. Design"],
+        skills: ["C# for Unity", "Game Design/Development", "Project Planning/Management", "Software Architecture & Development", "Team Collaboration/Communication", "U.I./U.X. Design"],
         pic: 'images/inProgress.gif',
         target: 'blue.html',
         ci: 1
     },
 
     {
-        name: "Simulations and Production Systems",
+        name: "Fluid Sim",
+        description: "Personal project | 2025+",
+        skills: ["C# for Unity", "Physics Programming", "Simulation Development"],
+        pic: 'images/inProgress.gif',
+        target: 'yellow.html',
+        ci: 1
+    },
+    
+    {
+        name: "Quant.io",
+        description: "Harvard Quantumn Shorts Submission | 2025",
+        skills:  ["C# for Unity", "Game Design/Development", "Physics Programming", "Quantum Mechanics", "Simulation Development", "Technical Writing/Documentation"],
+        pic: 'images/quant.gif',
+        target: 'yellow.html',
+        ci: 2
+    },
+    
+     {
+        name: "Three-body Portfolio",
+        description: "Portfolio Website | 2024+",
+        skills: ["Blender Modeling", "Full Stack Web Development", "Physics Programming", "Post-Processing and Shaders", "Three.js", "U.I./U.X. Design"],
+        pic: 'images/here.png',
+        target: 'yellow.html',
+        ci: 3
+    },
+
+    {
+        name: "Sims & DI",
         description: "USC Rocket Propulsion Lab | 2024+",
         skills: ["Coding in Collaborative Enviroments", "Problem Solving/Resourcefulness", "Physics Simulations with Python", "U.I./U.X. Design", "Web Design with HTML, JavaScript, & CSS"],
         pic: 'images/RPL.png',

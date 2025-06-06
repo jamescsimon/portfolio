@@ -81,7 +81,7 @@ loader.load(
     (gltf) => {
         const bottomShip = gltf.scene;
         bottomShip.name = "bottom"; // Set a name for easy reference
-        bottomShip.position.set(0, -10, 0);
+        bottomShip.position.set(0, -10, 0); 
         scene.add(bottomShip);
     },
     (xhr) => {
@@ -125,7 +125,6 @@ loader.load(
     }
 );
 
-
 //lock camera
 controls.update = function() {};
 
@@ -165,10 +164,27 @@ animate();
 const ambLight = new THREE.AmbientLight(0x404040, 1); 
 scene.add(ambLight);
 
+function adjustCameraForDevice() {
+    if (window.innerWidth <= 768) { // mobile
+        camera.position.set(-12, 0, 12);  
+        camera.lookAt(0, 3, -1);    
+        console.log("MOBILE VIEW");
+    } else { // PC
+        camera.position.set(-10, 0, 0);
+        camera.lookAt(0, 0, 0);
+        camera.position.set(-10, 0, 3);
+        console.log("PC VIEW")
+    }
+}
+
+adjustCameraForDevice();
+
 window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    adjustCameraForDevice(); 
 });
 
 // Background
