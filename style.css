@@ -5,6 +5,7 @@ body, html { /* all pages */
   height: 100%;
   font-family: 'Kanit', sans-serif;
   background-color: black;
+  color:white;
 }
 
 .kanit-thin { /* all pages */
@@ -19,12 +20,12 @@ body, html { /* all pages */
   height: calc(100% - 50px);
 }
 
-ul { /* all pages, top tabs container */
+#navbar {
   list-style-type: none;
+  background-color: #090b0c; 
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
   position: fixed;
   top: 0;
   width: 100%;
@@ -57,7 +58,7 @@ li a { /* all pages, top tab word labels */ /*adjusted!*/
   text-decoration: none;
 }
 
-li a:hover { /* all pages, top tab hover */ /*adjusted!*/
+a:hover { /* all pages, top tab hover */ /*adjusted!*/
   background-color: #111;
 }
 
@@ -228,10 +229,26 @@ canvas {
   --offset-right: 0px;
 }
 
-#rB {
+/* ===== Planets Section (responsive container + original selectors) ===== */
+#planet-wrapper {
+  aspect-ratio: 1600 / 770;
+  width: 90vw;
+  max-width: 1600px;
+  height: auto;
+  max-height: 90vh;
   position: absolute;
-  bottom: 14.5%;
-  right: 39.5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #b4464600;
+  box-sizing: border-box;
+  /* Optional: add padding or border if needed */
+}
+
+#planet-wrapper #rB { /* planets */
+  position: absolute;
+  bottom: clamp(1vh, 5vw, 10vh);
+  right: clamp(41%, 1.5vw, 40.5%);
   width: 3%;
   height: 5.5%;
   opacity: 0;
@@ -239,10 +256,10 @@ canvas {
   z-index: 99999;
 }
 
-#lB {
+#planet-wrapper #lB { /* planets */
   position: absolute;
-  bottom: 14.5%;
-  left: 39.5%;
+  bottom: clamp(1vh, 5vw, 10vh);
+  left: clamp(41%, 1.5vw, 40.5%);
   width: 3%;
   height: 5.5%;
   opacity: 0;
@@ -250,79 +267,207 @@ canvas {
   z-index: 99999;
 }
 
-#planetName {
+#planet-wrapper #planetName { /* planets! */
+  position: absolute;
+  top: 3.5%;
+  left: 6.95%;
+  color: white;
+  font-size: clamp(1rem, 5vw, 4.5rem);
+  z-index: 10001;
+  max-width: 80%;
+  white-space: nowrap;
+}
+
+#planet-wrapper #planetDesc { /* planets! */
+  position: absolute;
+  top: 15%;
+  left: 6.95%;
+  color: white;
+  font-size: clamp(0.5rem, 3.25vw, 3rem);
+  z-index: 10001;
+  max-width: 80%;
+  white-space: nowrap;
+}
+
+#planet-wrapper .centered-planet-name { /* planets! */
   position: absolute;
   top: 14%;
   left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 350%;
-  z-index: 10001;
-  max-width: 200%;
-  white-space: nowrap;
+  transform: translateX(3%);
+  text-align: center;
+  width: 100%;
+  z-index: 200;
 }
 
-#planetDesc {
+#planet-wrapper .centered-planet-desc { /* planets! */
   position: absolute;
-  top: 22%;
+  top: 15%;
   left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 200%;
-  z-index: 10001;
-  max-width: 200%;
-  white-space: nowrap;
+  transform: translateX(3%);
+  text-align: center;
+  width: 100%;
+  z-index: 200;
 }
 
-#overview {
+#planet-wrapper {
+  aspect-ratio: 1600 / 770;
+  width: 90vw;
+  max-width: 1600px;
+  height: auto;
+  max-height: 90vh;
   position: absolute;
-  bottom: 37.5%;
-  left: 19.5%;
-  transform: translateX(-50%);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 25px;
-  z-index: 10002;
-  text-decoration: underline;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #b4464600;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
-#description {
+#planet-wrapper .descContainer { /* planets */
   position: absolute;
-  bottom: 40%;
-  right: 13.8%;
-  transform: translateX(-50%);
+  top: clamp(1vh, 6vw, 20vh);
+  right: 10%;
+  width: 28%;
+  height: clamp(5vh, 28vw, 750vh); /*  key line adjusted */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  border-radius: 10px;
+  z-index: 100;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #fff transparent;
+}
+#planet-wrapper .descContainer::-webkit-scrollbar { width: 10px; background: transparent; }
+#planet-wrapper .descContainer::-webkit-scrollbar-thumb { background: #fff; }
+
+#planet-wrapper .descContainer > * {
+  position: static !important;
+  transform: none !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+#planet-wrapper #overview,
+#planet-wrapper #description { /* planets */
+  position: absolute;
   color: white;
-  padding: 10px 20px;
+  padding: 0rem 1rem;
   border-radius: 5px;
-  font-size: 25px;
+  font-size: clamp(0.5rem, 1.5vw, 1.5rem);
   z-index: 10005;
   text-decoration: underline;
+  cursor: pointer;
 }
 
-#overviewDesc {
-  position: absolute;
-  top: 62%;
-  left: 2%;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 150%;
-  z-index: 100;
-  max-width: 34%;
-}
+#planet-wrapper #overview  { right: 27.2%; top: 10%; }
+#planet-wrapper #description { right: 23.3%; top: 10%; }
 
-#projectDesc {
+#planet-wrapper #overviewDesc,
+#planet-wrapper #projectDesc { /* planets */
   position: absolute;
-  top: 58%;
-  right: 5.9%;
-  color: white;
-  padding: 10px 20px;
+  right: 8%;
+  padding-top: 0.25rem;
+  padding-right: 0rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1rem;
   border-radius: 5px;
-  font-size: 150%;
+  font-size: clamp(0.5rem, 1.5vw, 1.5rem);
   z-index: 100;
   max-width: 28%;
+}
+
+#planet-wrapper #skills { /* planets */
+  position: absolute;
+  top: 11%;
+  right: 11%;
+  padding: 0.25rem 1rem;
+  border-radius: 5px;
+  font-size: clamp(0.5rem, 1.5vw, 1.5rem);
+  color: white;
+  text-decoration: underline;
+  z-index: 10002;
+}
+
+#planet-wrapper #skillList { /* planets */
+  position: static;
+  padding-left: 1.5em;
+  list-style-type: disc;
+  list-style-position: inside;
+  margin: 0;
+  max-width: 100%;
+  font-size: clamp(0.5rem, 1.25vw, 1.5rem);
+}
+
+#planet-wrapper #skillList li { /* planets */
+  display: list-item !important;
+  float: none !important;
+  padding: 0.2em 0 0.2em 0.5em !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+#planet-wrapper #visitability {
+  position: absolute;
+  bottom: clamp(4.25vh, 7vw, 12.8vh);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(0.1rem, 1.2vw, 1.5rem);
+  color: white;
+  text-shadow: #000000 0 0 10px;
+  z-index: 10001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 25%;
+}
+
+#planet-wrapper .trailers {
+  position: absolute;
+  top: 53.5%;
+  left: 22.3%;
+  transform: translate(-50%, -50%);
+  height: 31%;
+  z-index: 101;
+}
+
+#planet-wrapper .rightArrow,
+#planet-wrapper .leftArrow {
+  position: absolute;
+  bottom: clamp(4vh, 7vw, 11.5vh);
+  width: 3%;
+  height: auto;
+  z-index: 101;
+}
+#planet-wrapper .rightArrow { right: clamp(41.5%, 1.5vw, 40.5%); }
+#planet-wrapper .leftArrow { left: clamp(41.5%, 1.5vw, 40.5%); }
+
+#planet-wrapper .petitesight {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -51%);
+  width: 90%;
+  max-width: 1800px;
+  height: auto;
+  z-index: 100;
+  object-fit: contain;
+}
+
+#planet-wrapper .launch {
+  position: absolute;
+  bottom: clamp(3.4vh, 5.5vw, 10vh);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(1rem, 10vw, 10rem);
+  height: auto;
+  z-index: 101;
+  object-fit: contain;
 }
 
 #contactHeader {
@@ -345,61 +490,6 @@ canvas {
   z-index: 10001;
   max-width: 100%;
   white-space: nowrap;
-}
-
-#visitability {
-  position: absolute;
-  bottom: 15.5%;
-  left: 50%;
-  width: 10%;
-  height: 10%;
-  transform: translateX(-50%);
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 2vw;
-  z-index: 10001;
-}
-
-#projectHeader {
-  position: absolute;
-  top: 10%;
-  left: 34%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 500%;
-  z-index: 10001;
-  max-width: 200%;
-  white-space: nowrap;
-}
-
-#skills {
-  position: absolute;
-  top: 11%;
-  right: 11%;
-  transform: translateX(-50%);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 25px;
-  z-index: 10002;
-  text-decoration: underline;
-}
-
-#skillList {
-  position: absolute;
-  top: 16%;
-  left: 70%;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px 40px;
-  border-radius: 5px;
-  font-size: 25px;
-  z-index: 101;
-  max-width: 24%;
-  list-style-type: disc;
 }
 
 .contact-container {
@@ -451,6 +541,18 @@ canvas {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#projectHeader {
+  position: absolute;
+  top: 10%;
+  left: 34%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 500%;
+  z-index: 10001;
+  max-width: 200%;
+  white-space: nowrap;
+}
+
 button {
   display: flex;
   justify-content: center;
@@ -469,70 +571,6 @@ button {
 
 button:hover {
   background-color: #b44646;
-}
-
-.trailers {
-  position: fixed;
-  top: 15%;
-  left: 4.5%;
-  width: auto;
-  height: 27%;
-  z-index: -100;
-}
-
-.rightArrow {
-  position: fixed;
-  bottom: 17%;
-  right: 39.5%;
-  width: 3%;
-  height: auto;
-  z-index: 101;
-}
-
-.leftArrow {
-  position: fixed;
-  bottom: 17%;
-  left: 39.5%;
-  width: 3%;
-  height: auto;
-  z-index: 101;
-}
-
-.monitor {
-  position: fixed;
-  top: 8%;
-  left: 1%;
-  height: 51.3%;
-  max-height: 51.3%;
-  width: auto;
-  z-index: -101;
-}
-
-.bonus {
-  position: fixed;
-  bottom: 7.6%;
-  right: 3.25%;
-  width: 40%;
-  height: auto;
-  z-index: -101;
-}
-
-.sight {
-  position: fixed;
-  top: 5.4%;
-  left: 19.5%;
-  width: 65%;
-  height: auto;
-  z-index: -101;
-}
-
-.launch {
-  position: fixed;
-  bottom: 14%;
-  left: 42.55%;
-  width: 15%;
-  height: auto;
-  z-index: -101;
 }
 
 @media (max-width: 768px){ /* mobile */
@@ -715,7 +753,7 @@ button:hover {
   padding: 10px 20px;
   border-radius: 5px;
   z-index: 10002;
-  font-size: 85%%;
+  font-size: 85%;
   background: #2929296c;
   border: 1px solid #fffdfd;
   width: auto;
@@ -775,204 +813,6 @@ button:hover {
   font-weight: 100;
   font-size: 4vw;
   color: #ffffff;
-}
-
-  /* PROJECTS PAGES */
-
-  .monitor {
-  position: fixed;
-  top: 55vw;
-  left: 1%;
-  height: 30vw;
-  width: 52vw;
-}
-
-  .sight {
-    left: 200vw;
-  }
-
-  .bonus {
-  position: fixed;
-  top: 93vw;
-  right: -0.5vw;
-  width: 38vw;
-  height: 42vw;
-  z-index: -101;
-}
-
-  .launch {
-  position: fixed;
-  bottom: 17vw;
-  left: 37.6%;
-  width: 25%;
-  height: auto;
-  z-index: -101;
-}
-
-  .leftArrow {
-  position: fixed;
-  bottom: 17vw;
-  left: 22%;
-  width: 10%;
-  height: auto;
-  z-index: 101;
-}
-
-  .rightArrow {
-  position: fixed;
-  bottom: 17vw;
-  right: 22%;
-  width: 10%;
-  height: auto;
-  z-index: 101;
-}
-
-  .trailers {
-  position: fixed;
-  top: 58.5vw;
-  left: 4vw;
-  width: auto;
-  height: 16vw;
-  z-index: -100;
-}
-
-  #planetName {
-  position: absolute;
-  top: 27vw;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 5vw;
-  z-index: 10001;
-  max-width: 200%;
-  white-space: nowrap;
-}
-
-  #planetDesc {
-  position: absolute;
-  top: 38vw;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 4vw;
-  z-index: 10001;
-  max-width: 200%;
-  white-space: nowrap;
-}
-
-  #visitability {
-  position: absolute;
-  bottom: 21.5vw;
-  left: 50%;
-  width: 25%;
-  height: 1.5%;
-  transform: translateX(-50%);
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 4vw;
-  z-index: 10001;
-}
-
-  #overview {
-  position: absolute;
-  bottom: 60vw;
-  left: 4vw;
-  transform: translateX(0%);
-  color: white;
-  padding: 0px 0px;
-  border-radius: 0px;
-  font-size: 3.5vw;
-  z-index: 10002;
-  text-decoration: underline;
-}
-
-  #description {
-  position: absolute;
-  bottom: 70.5vw;
-  right: 5.4vw;
-  transform: translateX(0%);
-  color: white;
-  padding: 0px 0px;
-  border-radius: 0px;
-  font-size: 3vw;
-  z-index: 10005;
-  text-decoration: underline;
-}
-
-  #overviewDesc {
-  position: absolute;
-  top: 110vw;
-  left: 3vw;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 5px 5px;
-  border-radius: 0px;
-  max-width: 50vw;
-  font-size: 2vw;
-  z-index: 100;
-}
-
-  #projectDesc {
-  position: absolute;
-  top: 100vw;
-  right: 2vw;
-  color: white;
-  padding: 0px 0px;
-  border-radius: 0px;
-  font-size: 2vw;
-  z-index: 100;
-  max-width: 29vw;
-}
-
-  #skills {
-  position: absolute;
-  top: 53vw;
-  right: 7vw;
-  transform: translateX(-50%);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 3.5vw;
-  z-index: 10002;
-  text-decoration: underline;
-}
-
-  #skillList {
-  position: absolute;
-  top: 59vw;
-  left: 69vw;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 5px 20px;
-  font-size: 2vw;
-  z-index: 101;
-  max-width: 24%;
-  list-style-type: disc;
-}
-
-  #rB {
-  position: absolute;
-  bottom: 17vw;
-  right: 22%;
-  width: 10%;
-  height: 10vw;
-  opacity: 0;
-  transform: translateY(0%);
-  z-index: 99999;
-}
-
-#lB {
-  position: absolute;
-  bottom: 17vw;
-  left: 22%;
-  width: 10%;
-  height: 10vw;
-  opacity: 0;
-  transform: translateY(0%);
-  z-index: 99999;
 }
 
 }

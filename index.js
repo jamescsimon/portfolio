@@ -1,4 +1,3 @@
-//three.js imports
 import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 import { RenderPass } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/postprocessing/RenderPass.js';
@@ -32,6 +31,7 @@ renderer.toneMapping = THREE.CineonToneMapping;
 renderer.toneMappingExposure = 0.7; // blurr
 
 const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.enableZoom = false;
 orbit.update();
 
 const ambLight = new THREE.AmbientLight(0x404040, 1.5); 

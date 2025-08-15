@@ -1,19 +1,17 @@
-//three.js imports
 import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 import { RenderPass } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { EffectComposer } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/postprocessing/EffectComposer.js';
 
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
+const container = document.getElementById('threejs-container');
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
-
 const camera = new THREE.PerspectiveCamera(
     45, // distance from sun
-    window.innerWidth / window.innerHeight, // aspect ratio
+    container.clientWidth / container.clientHeight, // aspect ratio
     0.1, // render min distance
     1000 // render max distance
 );
@@ -22,7 +20,7 @@ const renderScene = new RenderPass(scene, camera);
 const composer = new EffectComposer(renderer);
 composer.addPass(renderScene);
 const bloomPass = new UnrealBloomPass(
-    new THREE.Vector2(window.innerWidth, window.innerHeight),
+    new THREE.Vector2(container.clientWidth, container.clientHeight),
     1.5, // bloom strength
     0.5,
     0.1
@@ -30,6 +28,18 @@ const bloomPass = new UnrealBloomPass(
 composer.addPass(bloomPass);
 renderer.toneMapping = THREE.CineonToneMapping;
 renderer.toneMappingExposure = 0.7; // blurr
+
+function onResize() {
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+  renderer.setSize(w, h);
+  composer.setSize(w, h);
+  bloomPass.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', onResize);
+onResize();
 
 const orbit = new OrbitControls(camera, renderer.domElement);
 orbit.update();
@@ -73,10 +83,10 @@ function createPlanet(size, texture, position, ring) {
     return { mesh, obj };
 }
 
-const mercury = createPlanet(3.2, './images/mercury.jpg', 119); // Link
-const venus = createPlanet(5.8, './images/venus.jpg', 270); // Link
-const earth = createPlanet(6, './images/earth.jpg', 360); // Link
-const mars = createPlanet(4, './images/mars.jpg', 480); // Link
+const mercury = createPlanet(4, './images/mercury.jpg', 119); // Link
+const venus = createPlanet(4.3, './images/venus.jpg', 270); // Link
+const earth = createPlanet(4.4, './images/earth.jpg', 360); // Link
+const mars = createPlanet(4.2, './images/mars.jpg', 480); // Link
 
 // camera vars
 let ci = 0; // camera index
@@ -108,6 +118,8 @@ function initializeSkillsSection() {
 
 }
 
+planetName.classList.add('centered-planet-name');
+planetDesc.classList.add('centered-planet-desc');
 window.addEventListener('DOMContentLoaded', initializeSkillsSection);
 document.getElementById('skills').textContent = 'Skills';
 
@@ -128,7 +140,7 @@ const planetDescriptions = [
 ];
 
 const visitability = [
-    "",
+    "Explore!",
     "In Progress",
     "Demo Only",
     "Visit",
@@ -152,7 +164,7 @@ const projectDesc = [ // project description
 ]
 
 const skills = [
-    [], // • bullet point 
+    [""], // • bullet point 
     ["C# for Unity", "Game Design/Development", "Project Planning/Management", "Software Architecture & Development", "Team Collaboration/Communication", "U.I./U.X. Design"],
     ["C# for Unity", "Game Design/Development", "iOS Mobile App Development", "Project Planning/Management", "Technical Writing/Documentation", "U.I./U.X. Design",],
     ["C# for Unity", "Game Design/Development", "Project Planning/Management", "Q.A. Testing & Data Analysis", "Team Collaboration/Communication", "Technical Writing/Documentation", "U.I./U.X. Design"],
@@ -174,6 +186,25 @@ function updateText() {
     });    
 }
 
+function getScreenScaleFactor() {
+  const width = window.innerWidth;
+  const baseScale = width / 1000;
+
+  let factor = 2 / baseScale;
+
+  // Clamp between 1 and 3.5 normally
+  factor = Math.max(Math.min(factor, 3.5), 1);
+
+  // If very narrow screen (portrait phones), scale further back
+  if (width < 500) {
+    factor += 0.5; // pull farther away on very thin screens
+  }
+
+  return factor;
+}
+
+let screenScaleFactor = getScreenScaleFactor();
+
 function animate() {
     // Self-rotation
     sun.rotateY(0.00125);
@@ -188,12 +219,13 @@ function animate() {
     earth.obj.rotateY(0.001);
     mars.obj.rotateY(0.0008);
 
-    renderer.render(scene, camera);
+    composer.render(scene, camera);
 
     if (ci == 0) { // sun
-        camera.position.set(150, 0, 0);
+        camera.position.set(150 * screenScaleFactor, 0, 0);
         camera.lookAt(0, 0, 0);
         mercury.mesh.remove(camera);
+        document.getElementById('sight').style.display = 'none';
         document.getElementById('overview').textContent = "";
         document.getElementById('description').textContent = "";
         document.getElementById('skillList').style.zIndex = '-101';
@@ -203,18 +235,11 @@ function animate() {
 
     composer.render();
     requestAnimationFrame(animate);
+    screenScaleFactor = getScreenScaleFactor();
 }
 animate();
 
-window.addEventListener('resize', function () {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
-
-const monitor = document.getElementById('monitor'); 
-const bonus = document.getElementById('bonus'); 
-const sights = document.getElementById('sight'); 
+const sight = document.getElementById('petitesight');
 const launchButton = document.getElementById('launch'); 
 const lArrow = document.getElementById('leftArrow'); 
 const rArrow = document.getElementById('rightArrow');
@@ -224,9 +249,7 @@ const venusGif = document.getElementById('gif2');
 const earthGif = document.getElementById('gif3'); 
 const marsGif = document.getElementById('gif4'); 
 
-monitor.style.zIndex = '-101';
-bonus.style.zIndex = '-101';
-sights.style.zIndex = '-101';
+sight.style.zIndex = '-101';
 launchButton.style.zIndex = '-101';
 lArrow.style.zIndex = '101'; 
 rArrow.style.zIndex = '101';
@@ -243,18 +266,29 @@ window.camNext = function () {
         updateText();
     }
 
+    const planetName = document.getElementById('planetName');
+    const planetDesc = document.getElementById('planetDesc');
+    if (planetName && planetDesc) {
+        if (ci === 0) {
+            planetName.classList.add('centered-planet-name');
+            planetDesc.classList.add('centered-planet-desc');
+        } else {
+            planetName.classList.remove('centered-planet-name');
+            planetDesc.classList.remove('centered-planet-desc');
+        }
+    }
+
     if (ci == 1) { // mercury
-        camera.position.set(-30, 0, 40);
-        camera.lookAt(0, 0, 0);
+        camera.position.set(0, 0, 50 * screenScaleFactor);
+        camera.lookAt(0.25 * screenScaleFactor, 0.8 * screenScaleFactor, 0); // left, down, ?
         mercury.mesh.add(camera);
         document.getElementById('skillList').style.zIndex = '101';
         document.getElementById('overviewDesc').style.zIndex = '101'; 
         document.getElementById('overview').textContent = "Job Overview";
         document.getElementById('description').textContent = "Project Description";
         document.getElementById('skills').textContent = "Skills";
-        monitor.style.zIndex = '90';
-        sights.style.zIndex = '90';
-        bonus.style.zIndex = '90';
+        document.getElementById('sight').style.display = 'block'; 
+        sight.style.zIndex = '90';
         launchButton.style.zIndex = '90';
         mercuryGif.style.zIndex = '100'; 
     } else if (ci == 2) { // venus
@@ -285,15 +319,26 @@ window.camPrev = function () {
         window.location.href = "index.html";
     }
 
+    const planetName = document.getElementById('planetName');
+    const planetDesc = document.getElementById('planetDesc');
+    if (planetName && planetDesc) {
+        if (ci === 0) {
+            planetName.classList.add('centered-planet-name');
+            planetDesc.classList.add('centered-planet-desc');
+            skillList.style.zIndex = '-101';
+        } else {
+            planetName.classList.remove('centered-planet-name');
+            planetDesc.classList.remove('centered-planet-desc');
+        }
+    }
+
     if (ci == 0) { // sun
         camera.position.set(150, 0, 0);
         camera.lookAt(0, 0, 0);
         mercury.mesh.remove(camera);
-        monitor.style.zIndex = '-101';
-        sights.style.zIndex = '-101';
-        document.getElementById('skillList').style.zIndex = '-101';
+        skillList.textContent = '';
         document.getElementById('overviewDesc').style.zIndex = '-101'; 
-        bonus.style.zIndex = '-101';
+        sight.style.zIndex = '-101';
         launchButton.style.zIndex = '-101';
         mercuryGif.style.zIndex = '-100'; 
     } else if (ci == 1) { // mercury
@@ -313,6 +358,11 @@ window.camPrev = function () {
         earthGif.style.zIndex = '100';  
     } 
 };
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('rB').addEventListener('click', camNext);
+  document.getElementById('lB').addEventListener('click', camPrev);
+});
 
 // Background
 const bgst = new THREE.TextureLoader().load('images/stars.jpg');
