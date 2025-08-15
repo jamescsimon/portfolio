@@ -461,7 +461,7 @@ canvas {
 
 #planet-wrapper .launch {
   position: absolute;
-  bottom: clamp(3.4vh, 5.5vw, 10vh);
+  bottom: clamp(3.7vh, 5.9vw, 12vh);
   left: 50%;
   transform: translateX(-50%);
   width: clamp(1rem, 10vw, 10rem);
