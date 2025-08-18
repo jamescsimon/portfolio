@@ -32,6 +32,9 @@ renderer.toneMappingExposure = 0.7; // blurr
 
 const orbit = new OrbitControls(camera, renderer.domElement);
 orbit.enableZoom = false;
+orbit.enableRotate = false;  // Disable rotation
+orbit.enablePan = false;     // Disable panning
+orbit.enableDamping = false; // Disable damping for immediate response
 orbit.update();
 
 const ambLight = new THREE.AmbientLight(0x404040, 1.5); 

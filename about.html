@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;400&display=swap" rel="stylesheet"> 
     <link rel="icon" href="data:,">
 </head>
-<body>
+<body class="about-page">
     <ul id="navbar">
         <li><a href="/index.html">Select</a></li> 
         <li><a href="/about.html">About</a></li> 
@@ -23,8 +23,22 @@
     <div class="container">
         <div id="threejs-container"></div>
     </div>
-    <div id="aboutHeader">About Me</div>
-    <div id="aboutDesc" class="kanit-thin"> </div>
+    
+    <!-- Large logo replacing "About Me" text -->
+    <div id="about-logo">
+        <img src="/images/logo.png" alt="Logo" class="about-logo-image">
+    </div>
+    
+    <!-- About description -->
+    <div id="aboutDesc" class="kanit-thin"></div>
+    
+    <!-- Logo in bottom left corner -->
+    <div id="logo">
+        <a href="/about.html">
+            <img src="/images/logo.png" alt="Logo" class="logo-image">
+        </a>
+    </div>
+    
     <canvas class="webgl"></canvas>
     <script type="module" src="/about.js"></script>  
 </body>

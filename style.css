@@ -46,6 +46,68 @@ lu { /* all pages, bottom copywrite statement */ /*adjusted!*/
   z-index: 10000;
 }
 
+#logo {
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
+  z-index: 10000;
+}
+
+.logo-image {
+  height: 6vw;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.logo-image:hover {
+  opacity: 1;
+}
+
+#logo a {
+  text-decoration: none;
+  display: block;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#logo a:hover {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Large logo for about page */
+#about-logo {
+  position: absolute;
+  top: -5%;
+  left: 17%;
+  transform: translateX(-50%);
+  z-index: 10001;
+}
+
+.about-logo-image {
+  height: 24vw; /* 3 times the normal 6vw size */
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.about-logo-image:hover {
+  opacity: 1;
+}
+
+/* Hide bottom-left logo on about page */
+body:has(#about-logo) #logo {
+  display: none;
+}
+
+/* Alternative method using body class */
+.about-page #logo {
+  display: none;
+}
+
 li { /* all pages, top tab boxes */ /*adjusted!*/
   float: left;
 }
@@ -142,10 +204,12 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
   left: 27%;
   transform: translateX(-50%);
   color: white;
-  font-size: 200%;
+  font-size: clamp(1.5rem, 1.6vw, 2.5rem);
   z-index: 10001;
   max-width: 44%;
   white-space: normal;
+  outline: 1px solid black;
+  background-color: #000000ab;
 }
 
 #projects-container {
@@ -272,41 +336,47 @@ canvas {
   top: 3.5%;
   left: 6.95%;
   color: white;
-  font-size: clamp(1rem, 5vw, 4.5rem);
+  font-size: clamp(0.6rem, 3.5vw, 3.5rem);
   z-index: 10001;
-  max-width: 80%;
+  max-width: 53%;
   white-space: nowrap;
+  line-height: 1.2;
 }
 
 #planet-wrapper #planetDesc { /* planets! */
   position: absolute;
-  top: 15%;
+  top: 15%; /* fallback position */
   left: 6.95%;
   color: white;
-  font-size: clamp(0.5rem, 3.25vw, 3rem);
+  font-size: clamp(0.4rem, 2.5vw, 2.5rem);
   z-index: 10001;
-  max-width: 80%;
+  max-width: 53%;
   white-space: nowrap;
+  line-height: 1.2;
 }
 
 #planet-wrapper .centered-planet-name { /* planets! */
-  position: absolute;
-  top: 14%;
-  left: 50%;
-  transform: translateX(3%);
-  text-align: center;
-  width: 100%;
-  z-index: 200;
+  position: absolute !important;
+  top: 3.5% !important;
+  left: 45% !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+  width: 100% !important;
+  z-index: 10002 !important;
+  color: white !important;
+  font-size: clamp(0.6rem, 3.5vw, 3.5rem) !important;
 }
 
 #planet-wrapper .centered-planet-desc { /* planets! */
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(3%);
-  text-align: center;
-  width: 100%;
-  z-index: 200;
+  position: absolute !important;
+  top: 15% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+  width: 100% !important;
+  z-index: 10002 !important;
+  color: white !important;
+  font-size: clamp(0.4rem, 2.5vw, 2.5rem) !important;
 }
 
 #planet-wrapper {
@@ -814,5 +884,45 @@ button:hover {
   font-size: 4vw;
   color: #ffffff;
 }
-
+  
+  #planet-wrapper {
+    width: 95vw;
+    max-width: none;
+  }
+  
+  .project {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .project-pic {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .project-details h2 {
+    font-size: 200%;
+  }
+  
+  .project-details p {
+    font-size: 150%;
+  }
+  
+  #logo {
+    bottom: 2%;
+    left: 2%;
+  }
+  
+  .logo-image {
+    height: 40px;
+  }
+  
+  #about-logo {
+    top: 20%;
+  }
+  
+  .about-logo-image {
+    height: 60px; /* 3 times the mobile logo size (40px) */
+  }
 }

@@ -4,84 +4,45 @@ import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/js
 import { RenderPass } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { EffectComposer } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/postprocessing/EffectComposer.js';
+import { getSolarSystemData, getPlanetCount } from './planetData.js';
 
-// -- project info --
-const projects = [
-
-    {
-        name: "Blackout",
-        description: "First passion project | 2019-23",
-        skills: ["Blender Modeling", "Lua for Roblox Studio", "Game Design/Development", "Post-Processing and Shaders", "Technical Writing/Documentation", "U.I./U.X. Design"],
-        pic: 'images/blackout.gif',
-        target: 'blue.html',
-        ci: 4
-    }, 
-
-    {
-        name: "Butterflies",
-        description: "First game on Steam! | 2023",
-        skills: ["C# for Unity", "Game Design/Development", "Project Planning/Management", "Q.A. Testing & Data Analysis", "Team Collaboration/Communication", "Technical Writing/Documentation", "U.I./U.X. Design"],
-        pic: 'images/ButterfliesTrailer.gif',
-        target: 'blue.html',
-        ci: 3
-    }, 
-
-    {
-        name: "Cat Counselor",
-        description: "Sloan Grant application | 2023-24",
-        skills: ["C# for Unity", "Game Design/Development", "iOS Mobile App Development", "Project Planning/Management", "Technical Writing/Documentation", "U.I./U.X. Design"],
-        pic: 'images/CatCounselor.gif',
-        target: 'blue.html',
-        ci: 2
-    }, 
-
-    {
-        name: "BREAK",
-        description: "Passion project | 2023+",
-        skills: ["C# for Unity", "Game Design/Development", "Project Planning/Management", "Software Architecture & Development", "Team Collaboration/Communication", "U.I./U.X. Design"],
-        pic: 'images/inProgress.gif',
-        target: 'blue.html',
-        ci: 1
-    },
-
-    {
-        name: "Fluid Sim",
-        description: "Personal project | 2025+",
-        skills: ["C# for Unity", "Physics Programming", "Simulation Development"],
-        pic: 'images/inProgress.gif',
-        target: 'yellow.html',
-        ci: 1
-    },
+// Dynamically populate projects from centralized planetData.js
+function populateProjectsFromPlanetData() {
+    const projects = [];
     
-    {
-        name: "Quant.io",
-        description: "Harvard Quantumn Shorts Submission | 2025",
-        skills:  ["C# for Unity", "Game Design/Development", "Physics Programming", "Quantum Mechanics", "Simulation Development", "Technical Writing/Documentation"],
-        pic: 'images/quant.gif',
-        target: 'yellow.html',
-        ci: 2
-    },
+    // Get all solar systems
+    const solarSystems = ['blue', 'pink', 'yellow'];
     
-     {
-        name: "Three-body Portfolio",
-        description: "Portfolio Website | 2024+",
-        skills: ["Blender Modeling", "Full Stack Web Development", "Physics Programming", "Post-Processing and Shaders", "Three.js", "U.I./U.X. Design"],
-        pic: 'images/here.png',
-        target: 'yellow.html',
-        ci: 3
-    },
+    solarSystems.forEach(systemName => {
+        const systemData = getSolarSystemData(systemName);
+        if (!systemData) return;
+        
+        // Get the target HTML file for this system
+        const targetFile = `${systemName}.html`;
+        
+        // Add each planet as a project (skip the sun which is index 0)
+        for (let i = 1; i < systemData.planets.length; i++) {
+            const planet = systemData.planets[i];
+            
+            // Only add planets that aren't the sun
+            if (!planet.isSun) {
+                projects.push({
+                    name: planet.name,
+                    description: planet.description,
+                    skills: planet.skills,
+                    pic: planet.gif || 'images/inProgress.gif', // Use planet's gif or fallback
+                    target: targetFile,
+                    ci: i // Planet index (1-based, since 0 is sun)
+                });
+            }
+        }
+    });
+    
+    return projects;
+}
 
-    {
-        name: "Sims & DI",
-        description: "USC Rocket Propulsion Lab | 2024+",
-        skills: ["Coding in Collaborative Enviroments", "Problem Solving/Resourcefulness", "Physics Simulations with Python", "U.I./U.X. Design", "Web Design with HTML, JavaScript, & CSS"],
-        pic: 'images/RPL.png',
-        target: 'yellow.html',
-        ci: 4
-    }
-
-];
-// -- project info --
+// Get projects dynamically
+const projects = populateProjectsFromPlanetData();
 
 const projectsContainer = document.getElementById('projects-container');
 const skillsDropdown = document.getElementById('skillsSearch');
