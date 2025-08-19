@@ -29,7 +29,7 @@ export const solarSystemData = {
                 size: 4,
                 position: 119,
                 texture: './images/mercury.jpg',
-                gif: '/images/BREAK.gif'
+                gif: './images/BREAK.gif'
             },
             {
                 name: "Cat Counselor",
@@ -41,7 +41,7 @@ export const solarSystemData = {
                 size: 4.3,
                 position: 270,
                 texture: './images/venus.jpg',
-                gif: '/images/CatCounselor.gif'
+                gif: './images/CatCounselor.gif'
             },
             {
                 name: "Butterflies",
@@ -53,7 +53,7 @@ export const solarSystemData = {
                 size: 4.4,
                 position: 360,
                 texture: './images/earth.jpg',
-                gif: '/images/ButterfliesTrailer.gif'
+                gif: './images/ButterfliesTrailer.gif'
             },
             {
                 name: "Blackout",
@@ -65,7 +65,7 @@ export const solarSystemData = {
                 size: 4.2,
                 position: 480,
                 texture: './images/mars.jpg',
-                gif: '/images/blackout.gif'
+                gif: './images/blackout.gif'
             },
         ]
     },
@@ -97,7 +97,7 @@ export const solarSystemData = {
                 size: 3.2,
                 position: 119,
                 texture: './images/mercury.jpg',
-                gif: '/images/new_tower.png'
+                gif: './images/new_tower.png'
             },
             {
                 name: "Genre Distribution Coefficients (GDC)",
@@ -109,7 +109,7 @@ export const solarSystemData = {
                 size: 4.2,
                 position: 270,
                 texture: './images/venus.jpg',
-                gif: '/images/GDC_ex.gif'
+                gif: './images/GDC_ex.gif'
             },
             {
                 name: "Target Audience Calculator (TAC)",
@@ -121,7 +121,7 @@ export const solarSystemData = {
                 size: 4.5,
                 position: 360,
                 texture: './images/earth.jpg',
-                gif: '/images/TAC_ex.gif'
+                gif: './images/TAC_ex.gif'
             },
             {
                 name: "Cast & Crew Payments (CCP), Non-Personnel Cost Projection (NCP)",
@@ -133,7 +133,7 @@ export const solarSystemData = {
                 size: 3.8,
                 position: 450,
                 texture: './images/mars.jpg',
-                gif: '/images/new_tower.png'
+                gif: './images/new_tower.png'
             },
             {
                 name: "Funding vs Revenue Graph (FRG)",
@@ -145,7 +145,7 @@ export const solarSystemData = {
                 size: 4.2,
                 position: 540,
                 texture: './images/venus.jpg',
-                gif: '/images/FRG_ex.png'
+                gif: './images/FRG_ex.png'
             },
             {
                 name: "Reader Sentiment Estimator (RSE) & Reader Retention Estimator (RRE)",
@@ -157,7 +157,7 @@ export const solarSystemData = {
                 size: 4.5,
                 position: 630,
                 texture: './images/mercury.jpg',
-                gif: '/images/RSERRE_ex.gif'
+                gif: './images/RSERRE_ex.gif'
             },
             {
                 name: "Theatrical Localization Prioritization (TLP)",
@@ -169,7 +169,7 @@ export const solarSystemData = {
                 size: 3.8,
                 position: 720,
                 texture: './images/mars.jpg',
-                gif: '/images/new_tower.png'
+                gif: './images/new_tower.png'
             },
         ]
         
@@ -202,7 +202,7 @@ export const solarSystemData = {
                 size: 3.2,
                 position: 119,
                 texture: './images/mercury.jpg',
-                gif: '/images/inProgress.gif'
+                gif: './images/inProgress.gif'
             },
             {
                 name: "Quant.io",
@@ -214,7 +214,7 @@ export const solarSystemData = {
                 size: 5.8,
                 position: 270,
                 texture: './images/venus.jpg',
-                gif: '/images/quant.gif'
+                gif: './images/quant.gif'
             },
             {
                 name: "Three-body Portfolio",
@@ -226,7 +226,7 @@ export const solarSystemData = {
                 size: 6,
                 position: 360,
                 texture: './images/earth.jpg',
-                gif: '/images/inProgress.gif'
+                gif: './images/inProgress.gif'
             },
             {
                 name: "Sims & DI",
@@ -238,7 +238,7 @@ export const solarSystemData = {
                 size: 4,
                 position: 480,
                 texture: './images/mars.jpg',
-                gif: '/images/inProgress.gif'
+                gif: './images/inProgress.gif'
             }
         ]
     }
