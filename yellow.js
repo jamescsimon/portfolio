@@ -46,8 +46,12 @@ onResize();
 const orbit = new OrbitControls(camera, renderer.domElement);
 orbit.update();
 
-const ambLight = new THREE.AmbientLight(0x404040, 1.5); 
+const ambLight = new THREE.AmbientLight(0x404040, 0.5); 
 scene.add(ambLight);
+
+const sunLight = new THREE.PointLight(0xffffff, 1);
+sunLight.position.set(0, 0, 0);
+scene.add(sunLight);
 
 const textureLoader = new THREE.TextureLoader();
 

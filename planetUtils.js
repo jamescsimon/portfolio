@@ -104,7 +104,26 @@ export function updateText() {
     
     document.getElementById('planetName').textContent = planet.name;
     document.getElementById('planetDesc').textContent = planet.description;
-    document.getElementById('visitability').textContent = planet.visitability;
+    
+    // Update visitability with clickable functionality if link is available
+    const visitabilityElement = document.getElementById('visitability');
+    visitabilityElement.textContent = planet.visitability;
+    
+    // Remove any existing click handlers
+    visitabilityElement.onclick = null;
+    
+    // Add click handler if link exists
+    if (planet.link) {
+        visitabilityElement.style.cursor = 'pointer';
+        visitabilityElement.classList.add('clickable-visitability');
+        visitabilityElement.onclick = () => {
+            window.open(planet.link, '_blank');
+        };
+    } else {
+        visitabilityElement.style.cursor = 'default';
+        visitabilityElement.classList.remove('clickable-visitability');
+    }
+    
     document.getElementById('overviewDesc').textContent = planet.overview;
     document.getElementById('projectDesc').textContent = planet.projectDesc;
     

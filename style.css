@@ -121,7 +121,7 @@ li a { /* all pages, top tab word labels */ /*adjusted!*/
 }
 
 a:hover { /* all pages, top tab hover */ /*adjusted!*/
-  background-color: #111;
+  background-color: #111111;
 }
 
 #menuTitle { /* index */ /*adjusted!*/
@@ -642,6 +642,39 @@ button {
 
 button:hover {
   background-color: #b44646;
+}
+
+/* Styling for clickable visitability links */
+.visitability-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.visitability-link:hover {
+    color: #ffffff; /* Gold color on hover */
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+.visitability-link:active {
+    transform: scale(0.95);
+}
+
+/* Styling for clickable visitability text */
+.clickable-visitability {
+    transition: all 0.3s ease;
+}
+
+.clickable-visitability:hover {
+    color: #ffd700; /* Gold color on hover */
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+.clickable-visitability:active {
+    transform: scale(0.95);
 }
 
 @media (max-width: 768px){ /* mobile */
