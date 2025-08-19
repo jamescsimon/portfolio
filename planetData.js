@@ -29,7 +29,7 @@ export const solarSystemData = {
                 size: 4,
                 position: 119,
                 texture: './images/mercury.jpg',
-                gif: './images/inProgress.gif'
+                gif: '/images/BREAK.gif'
             },
             {
                 name: "Cat Counselor",
@@ -41,7 +41,7 @@ export const solarSystemData = {
                 size: 4.3,
                 position: 270,
                 texture: './images/venus.jpg',
-                gif: './images/CatCounselor.gif'
+                gif: '/images/CatCounselor.gif'
             },
             {
                 name: "Butterflies",
@@ -53,7 +53,7 @@ export const solarSystemData = {
                 size: 4.4,
                 position: 360,
                 texture: './images/earth.jpg',
-                gif: './images/ButterfliesTrailer.gif'
+                gif: '/images/ButterfliesTrailer.gif'
             },
             {
                 name: "Blackout",
@@ -65,7 +65,7 @@ export const solarSystemData = {
                 size: 4.2,
                 position: 480,
                 texture: './images/mars.jpg',
-                gif: './images/blackout.gif'
+                gif: '/images/blackout.gif'
             },
         ]
     },
@@ -91,87 +91,88 @@ export const solarSystemData = {
                 name: "Preliminary Script Scorer (PSS)",
                 description: "AI Engineer Internship | Summer 2025",
                 visitability: "Visit",
-                overview: "I was tasked with building a more technologically robust Preliminary Script Scorer model for a startup that leverages NLP to empower screenwriters with data-driven feedback. It is set up to train itself further using human feedback within a web application and deduce which patterns are most indicative of a decorated screenplay.",
-                projectDesc: "This system combines TF-IDF text vectorization, multiple regression algorithms (Random Forest, Gradient Boosting, Linear/Ridge), ensemble methods, and feature engineering to predict movie critic scores from a curated dataset of 1455 screenplay's text and metadata. This model iteration was able to improve its accuracy by 24.41% from the legacy model to now be able topredict a screenplay's critic reception within a single point (out of 10), 97% of the time. 85% of the model's predictions were within 0.5 points of the actual score.",
+                overview: "I was tasked with building a more technologically robust Preliminary Script Scorer model that starts by leveraging NLP but is set up to train itself further using human feedback within a web application and deduce which patterns are most indicative of a decorated screenplay.",
+                projectDesc: "I combined TF-IDF text vectorization, regression algorithms (Random Forest, Gradient Boosting, Linear/Ridge), ensemble methods, and custom feature engineering on a dataset of 1,455 screenplays and their respective metadata. This new model improved accuracy by 24.41% over the legacy version and now predicts critic reception within 1 point (out of 10) for 97% of scripts, with 85% of predictions falling within half a point. This gave the studio a much more trustworthy greenlighting tool at the preliminary stages.",
                 skills: ["Python", "Natural Language Processing", "SQLite", "Web Development", "U.I./U.X. Design", "User Analytics", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Project Planning/Management"],
                 size: 3.2,
                 position: 119,
                 texture: './images/mercury.jpg',
-                gif: './images/new_tower.png'
+                gif: '/images/new_tower.png'
             },
             {
                 name: "Genre Distribution Coefficients (GDC)",
                 description: "AI Engineer Internship | Summer 2025",
                 visitability: "Visit",
-                overview: "I found that boolean genre tags were not enough to capture the nuances of a screenplay's genre. I decided to create a NLP model that would quantify the distribution of genres within a screenplay by clustering narrative flow patterns and determining varience, using the same 1455 labeled script dataset as the PSS model.",
-                projectDesc: "N-gram, Bag of Words, and TF-IDF text vectorization based models were used to determine the alignment of a screenplay's narrative flow to major genre tags. After experimenting with the different models, I was both shocked and delighted to find that the Bag of Words model was all that was needed to determine genre related insigts, while the remaining models provide impressive, yet unecessary detail.",
+                overview: "I realized boolean genre tags were not sufficient to capture the nuances of a screenplay's genre, as stories almost always span many. I therefore created an NLP model that quantifies the distribution of genres within a screenplay by clustering narrative flow patterns and determining variance, using the same 1,455 labeled script dataset as the PSS model.",
+                projectDesc: "N-gram, Bag of Words, and TF-IDF text vectorization based models were used to determine the alignment of a screenplay's narrative flow to major genre tags. After experimenting with the different models, I was both surprised and pleased to find that the Bag of Words model alone was enough to determine genre-related insights, while the other models provided impressive but unnecessary detail.",
                 skills: ["Python", "Natural Language Processing", "SQLite", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Project Planning/Management"],
                 size: 4.2,
                 position: 270,
                 texture: './images/venus.jpg',
-                gif: './images/new_tower.png'
+                gif: '/images/GDC_ex.gif'
             },
             {
                 name: "Target Audience Calculator (TAC)",
                 description: "AI Engineer Internship | Summer 2025",
                 visitability: "Visit",
-                overview: "With the PSS and GDC models in hand, I set out to design a model that would determine the demographic makeup of a script's target audience based on THEME Reports on demographics of known titles as well as IMDb's regional demographic data. This tool helped with the financial planning of film produciton, as it aimed to qunatify the total addressible market to the ticket count using the multimodal input of the screenplay's logline and historical demographic and market data.",
-                projectDesc: "I experimented with a range of models to determine the optimal granularity of features based on my limited sample set from the THEME Reports, historical market and demographic data. After iterating through the approaches, I found that Partial Least Squares Regression was the most effective model from the sample size. After expanding my model and doing extensive data analysis into the relevence of the features, as well as introducing the Loglines of the films as a standin for the screenplay's contents, I was able to get the model's confidence interval to give sensible results.",
+                overview: "With the PSS and GDC models in hand, I set out to design a model that would determine the demographic makeup of a script's target audience based on THEME Reports on demographics of known titles as well as IMDb's regional demographic data. This tool helped with the financial planning of film production, as it aimed to quantify the total addressable market to the ticket count using the multimodal input of the screenplay's logline and historical demographic and market data.",
+                projectDesc: "I experimented with a range of models to determine the optimal granularity of features based on my limited sample set from THEME Reports, historical market and demographic data. After iterating through approaches, I found that Partial Least Squares Regression was the most effective model given the sample size. By expanding the model, doing extensive feature relevance analysis, and introducing loglines as a stand-in for screenplay contents, I was able to bring the model’s confidence interval to sensible results.",
                 skills: ["Python", "Natural Language Processing", "SQLite", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Project Planning/Management"],
                 size: 4.5,
                 position: 360,
                 texture: './images/earth.jpg',
-                gif: './images/new_tower.png'
+                gif: '/images/TAC_ex.gif'
             },
             {
                 name: "Cast & Crew Payments (CCP), Non-Personnel Cost Projection (NCP)",
                 description: "AI Engineer Internship | Summer 2025",
                 visitability: "Visit",
-                overview: "To help my collegue with their financial planning interface, I designed a model that would predict the budget of a film based on historical IMDb cast and crew data as well as my collegue's robust interactive financial planner. The Non-Personnel Cost Projection was deduced from the difference of the predicted budget and the standard rates of the cast and crew found by my collegue's research.",
-                projectDesc: "After downloading nearly the entirety of IMDb, I was able to design a model that took in the cast and crew's estimated internet prevelence using Google Trends data prior to the film's release. Then in a joint effort with my collegue, we were able seperate the cast into brackets of expected payments, and then used historical industry rates to fill in all needed crew and investor returns. There is further work to be done to automate this process from the script alone, but this was a great starting point.",
+                overview: "To help my colleague with their financial planning interface, I designed a model that would predict the budget of a film based on historical IMDb cast and crew data combined with internet presence metrics. The Non-Personnel Cost Projection was derived from the difference between the predicted budget and the standard rates of the cast and crew found by my colleague's research.",
+                projectDesc: "After downloading nearly the entirety of IMDb, I designed a model that incorporated cast and crew’s estimated internet prevalence using Google Trends data prior to release. In collaboration with my colleague, we separated the cast into brackets of expected payments and then used historical industry rates to fill in all needed crew and investor returns. While further work is needed to automate this process from the script alone, this provided a strong starting framework.",
                 skills: ["Python", "SQLite", "Web Development", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Financial Budgeting", "Microsoft Excel"],
                 size: 3.8,
-                position: 480,
+                position: 450,
                 texture: './images/mars.jpg',
-                gif: './images/new_tower.png'
+                gif: '/images/new_tower.png'
             },
             {
                 name: "Funding vs Revenue Graph (FRG)",
                 description: "AI Engineer Internship | Summer 2025",
                 visitability: "Visit",
-                overview: "With the goal of being able to visualize all of the possible financial outcomes of a film, I designed one graph to plot the relationship between not just the budget and projected but the confidence interval, min and max projections, break even point, max return on investment, year of release, and genres to market it under as well.",
-                projectDesc: "With the help of my collegue's financial planner interface's structure, I designed the backend to populate the graph using a substancial self-curated dataset of 3062 films, with 1455 screenplays. I compared XGBoost, Random Forest, and Gradient Boosting Regressor, and found that a comination of models was the most effective predictor. I was able to train a simple network on the model's predictions on how to weight each model based on the context of the screenplay, which improved the model's accuracy further by X% to an R^2 of 0.Y.",
+                overview: "With the goal of being able to visualize all possible financial outcomes of a film, I designed one graph to plot not just budget and projection but also confidence interval, min and max projections, break-even point, maximum return on investment, year of release, and genres for marketing.",
+                projectDesc: "Using a self-curated dataset of 3,062 films (1,455 with screenplays), I compared XGBoost, Random Forest, and Gradient Boosting Regressor models, and found that a combination of models was most effective. I then trained a simple network on the model predictions to weight them appropriately by screenplay context, improving accuracy by 8% to an R² of 0.58.",
                 skills: ["Python", "Natural Language Processing", "SQLite", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Project Planning/Management", "Financial Budgeting", "Microsoft Excel"],
                 size: 4.2,
-                position: 270,
+                position: 540,
                 texture: './images/venus.jpg',
-                gif: './images/new_tower.png'
+                gif: '/images/FRG_ex.png'
             },
             {
                 name: "Reader Sentiment Estimator (RSE) & Reader Retention Estimator (RRE)",
                 description: "AI Engineer Internship | Summer 2025",
                 visitability: "Visit",
-                overview: "INTERDEPENDENT Studios is a startup that leverages real human feedback using an assortment of embedded telemetry and survies to train our machine learning models to build greenlighting confidence from the script alone. The two most prevelent forms of this telemetry are Reader Senitment and Retention, so I took it upon myself to design a model that would predict the likelihood of a reader's sentiment and retention based on the screenplay's contents, without the need of human feedback.",
-                projectDesc: "While I did set up a model that uses X, Y, and Z to predict the likelihood of a reader's sentiment and retention, we have yet to amass a large enough sample set of labeled human feedback to confirm the accuracy with statistical significance.",
+                overview: "INTERDEPENDENT Studios is a startup that leverages real human feedback using embedded telemetry and surveys to train machine learning models for greenlighting decisions from the script alone. Two of the most important signals are reader sentiment and retention, so I designed a model to predict both directly from screenplay content, without requiring human feedback.",
+                projectDesc: "I developed a model using NLP feature extraction and regression techniques to predict the likelihood of a reader's sentiment and retention. While we do not yet have a large enough labeled dataset to validate accuracy with statistical significance, the framework is ready and will improve as more human feedback is collected.",
                 skills: ["Python", "Natural Language Processing", "SQLite", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Project Planning/Management", "User Analytics", "U.I./U.X. Design"],
                 size: 4.5,
-                position: 360,
+                position: 630,
                 texture: './images/mercury.jpg',
-                gif: './images/new_tower.png'
+                gif: '/images/RSERRE_ex.gif'
             },
             {
                 name: "Theatrical Localization Prioritization (TLP)",
                 description: "AI Engineer Internship | Summer 2025",
                 visitability: "Visit",
-                overview: "I was tasked designing a model that would list the highest priority theatrical markets to target for each film based on all the models and screenplay data amassed thus far. This tool would help the marketing team prioritize their time and resources to maximize the impact of their work down to the theatre.",
-                projectDesc: "The hardest part of this project was to get the granularity that was requested of me, without the needed theatre data to do so. For the time being, I was able to use Partial Least Squares Regression to determine the ratio of the screenplay's target market and use historical census data to determine the confidence of the a city being an optimal market to show the film. The next steps would be to curate a dataset of real world theatres with the most granular data to determine the optimal market for each film.",
+                overview: "I was tasked with designing a model to rank theatrical markets for each film based on the screenplay data and prior models, so the marketing team could prioritize resources for maximum impact down to the theatre level.",
+                projectDesc: "The most difficult challenge was achieving the requested granularity without detailed theater data. For now, I used Partial Least Squares Regression to match a screenplay’s target market with city demographics, supported by historical census data to improve confidence. The prototype successfully identified promising markets, with future work focused on adding real-world theater datasets for precision targeting.",
                 skills: ["Python", "SQLite", "Web Development", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Microsoft Excel"],
                 size: 3.8,
-                position: 480,
+                position: 720,
                 texture: './images/mars.jpg',
-                gif: './images/new_tower.png'
+                gif: '/images/new_tower.png'
             },
         ]
+        
     },
     
     yellow: {
@@ -201,7 +202,7 @@ export const solarSystemData = {
                 size: 3.2,
                 position: 119,
                 texture: './images/mercury.jpg',
-                gif: './images/inProgress.gif'
+                gif: '/images/inProgress.gif'
             },
             {
                 name: "Quant.io",
@@ -213,7 +214,7 @@ export const solarSystemData = {
                 size: 5.8,
                 position: 270,
                 texture: './images/venus.jpg',
-                gif: './images/quant.gif'
+                gif: '/images/quant.gif'
             },
             {
                 name: "Three-body Portfolio",
@@ -225,7 +226,7 @@ export const solarSystemData = {
                 size: 6,
                 position: 360,
                 texture: './images/earth.jpg',
-                gif: './images/inProgress.gif'
+                gif: '/images/inProgress.gif'
             },
             {
                 name: "Sims & DI",
@@ -237,7 +238,7 @@ export const solarSystemData = {
                 size: 4,
                 position: 480,
                 texture: './images/mars.jpg',
-                gif: './images/inProgress.gif'
+                gif: '/images/inProgress.gif'
             }
         ]
     }

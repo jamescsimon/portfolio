@@ -504,6 +504,7 @@ canvas {
   transform: translate(-50%, -50%);
   height: 31%;
   z-index: 101;
+  opacity: 0.9;
 }
 
 #planet-wrapper .rightArrow,

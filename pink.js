@@ -77,10 +77,6 @@ initializeSolarSystem('pink', scene, textureLoader, camera, screenScaleFactor, T
 initializeResizeListener();
 
 // Initialize skills section
-const planetName = document.getElementById('planetName');
-const planetDesc = document.getElementById('planetDesc');
-planetName.classList.add('centered-planet-name');
-planetDesc.classList.add('centered-planet-desc');
 window.addEventListener('DOMContentLoaded', initializeSkillsSection);
 document.getElementById('skills').textContent = 'Skills';
 

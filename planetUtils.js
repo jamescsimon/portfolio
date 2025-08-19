@@ -32,6 +32,9 @@ export function initializeSolarSystem(systemName, scene, textureLoader, cam, sca
     planetObjects = createPlanets(scene, textureLoader);
     console.log(`Planet objects created:`, planetObjects.length);
     
+    // Initialize trailer images from planet data
+    initializeTrailerImages();
+    
     // Set initial camera position and UI state (sun view)
     console.log('Setting up initial sun view...');
     handleSunView();
@@ -75,6 +78,22 @@ function createPlanets(scene, textureLoader) {
     });
     
     return objects;
+}
+
+// Initialize trailer images from planet data
+function initializeTrailerImages() {
+    if (!currentSystem) return;
+    
+    // Set the src attributes of gif elements based on planet data
+    currentSystem.planets.forEach((planetData, index) => {
+        if (!planetData.isSun && planetData.gif) {
+            const gifElement = document.getElementById(`gif${index}`);
+            if (gifElement) {
+                gifElement.src = planetData.gif;
+                console.log(`Set gif${index} src to: ${planetData.gif}`);
+            }
+        }
+    });
 }
 
 // Update text based on current camera index
@@ -178,11 +197,22 @@ function handleSunView() {
     document.getElementById('skillList').style.zIndex = '-101';
     document.getElementById('overviewDesc').style.zIndex = '-101'; 
     document.getElementById('skills').textContent = "";
+    document.getElementById('skills').style.zIndex = '-101';
+    
+    // Hide the entire descContainer
+    const descContainer = document.querySelector('.descContainer');
+    if (descContainer) {
+        descContainer.style.zIndex = '-101';
+        descContainer.style.display = 'none';
+    }
     
     // Hide all gifs
     for (let i = 1; i <= 10; i++) {
         const gif = document.getElementById(`gif${i}`);
-        if (gif) gif.style.zIndex = '-100';
+        if (gif) {
+            gif.style.display = 'none';
+            gif.style.zIndex = '-100';
+        }
     }
     
     // Add centered classes for sun view
@@ -227,18 +257,26 @@ function handlePlanetView(planetIndex) {
     document.getElementById('description').textContent = "Project Description";
     document.getElementById('skills').textContent = "Skills";
     
+    // Show the descContainer
+    const descContainer = document.querySelector('.descContainer');
+    if (descContainer) {
+        descContainer.style.zIndex = '100';
+        descContainer.style.display = 'flex';
+    }
+    
     // Show sight
     const sight = document.getElementById('sight');
     if (sight) sight.style.display = 'block';
     
-    // Handle gif visibility - show the gif for the current planet
+    // Handle gif visibility - show only the gif for the current planet
     for (let i = 1; i <= 10; i++) {
         const gif = document.getElementById(`gif${i}`);
         if (gif) {
             if (i === planetIndex) {
+                gif.style.display = 'block';
                 gif.style.zIndex = '100';
             } else {
-                gif.style.zIndex = '-100';
+                gif.style.display = 'none';
             }
         }
     }
