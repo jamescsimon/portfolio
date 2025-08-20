@@ -3,11 +3,11 @@
 
 export const solarSystemData = {
     blue: {
-        name: "Interactive Media Design",
+        name: "Game Design & Interactive Media",
         sunTexture: './images/blue.png',
         planets: [
             {
-                name: "Interactive Media Design",
+                name: "Game Design & Interactive Media",
                 description: "Projects Timeline",
                 visitability: "Explore!",
                 link: null, // No link for sun

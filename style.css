@@ -355,7 +355,7 @@ canvas {
   line-height: 1.2;
 }
 
-#planet-wrapper .centered-planet-name { /* planets! */
+#planet-wrapper #planetName.centered-planet-name { /* planets! */
   position: absolute !important;
   top: 3.5% !important;
   left: 45% !important;
@@ -367,7 +367,7 @@ canvas {
   font-size: clamp(0.6rem, 3.5vw, 3.5rem) !important;
 }
 
-#planet-wrapper .centered-planet-desc { /* planets! */
+#planet-wrapper #planetDesc.centered-planet-desc { /* planets! */
   position: absolute !important;
   top: 15% !important;
   left: 50% !important;
