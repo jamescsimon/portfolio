@@ -83,7 +83,7 @@ export const solarSystemData = {
                 name: "Artificial Intelligence / Machine Learning",
                 description: "Projects Timeline",
                 visitability: "",
-                link: null, // No link for sun
+                link: null, 
                 overview: "",
                 projectDesc: "",
                 skills: [],
@@ -97,14 +97,14 @@ export const solarSystemData = {
                 name: "Preliminary Script Scorer (PSS)",
                 description: "AI Engineer Internship | Summer 2025",
                 visitability: "Visit",
-                link: "https://interdependent.studio/", // Add your actual demo link
+                link: "https://interdependent.studio/", 
                 overview: "I was tasked with building a more technologically robust Preliminary Script Scorer model that starts by leveraging NLP but is set up to train itself further using human feedback within a web application and deduce which patterns are most indicative of a decorated screenplay.",
-                projectDesc: "I combined TF-IDF text vectorization, regression algorithms (Random Forest, Gradient Boosting, Linear/Ridge), ensemble methods, and custom feature engineering on a dataset of 1,455 screenplays and their respective metadata. This new model improved accuracy by 24.41% over the legacy version and now predicts critic reception within 1 point (out of 10) for 97% of scripts, with 85% of predictions falling within half a point. This gave the studio a much more trustworthy greenlighting tool at the preliminary stages.",
+                projectDesc: "I combined TF-IDF text vectorization, regression algorithms (Random Forest, Gradient Boosting, Linear/Ridge), ensemble methods, and custom feature engineering on a dataset of 1,455 screenplays and their respective metadata. This new model improved accuracy by 24.41% over the legacy version and now predicts critic reception within 1 point (out of 10) for 97% of scripts, with 85% of predictions falling within half a point. This gave the studio a much more trustworthy greenlighting tool at the preliminary stages, as it tended to air on the side of caution and be pessimistic. To address the heteroscedasticity in this model that led to less accurate predictions for higher scoring scripts, plans were made to implement weighted least squares regression and add interaction terms between predictors to better capture the variance structure across different score ranges.",
                 skills: ["Python", "Natural Language Processing", "SQLite", "Web Development", "U.I./U.X. Design", "User Analytics", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Project Planning/Management"],
                 size: 3.2,
                 position: 119,
                 texture: './images/mercury.jpg',
-                gif: './images/new_tower.png'
+                gif: './images/PSS_ex.gif'
             },
             {
                 name: "Genre Distribution Coefficients (GDC)",
@@ -125,7 +125,7 @@ export const solarSystemData = {
                 visitability: "Visit",
                 link: "https://interdependent.studio/",
                 overview: "With the PSS and GDC models in hand, I set out to design a model that would determine the demographic makeup of a script's target audience based on THEME Reports on demographics of known titles as well as IMDb's regional demographic data. This tool helped with the financial planning of film production, as it aimed to quantify the total addressable market to the ticket count using the multimodal input of the screenplay's logline and historical demographic and market data.",
-                projectDesc: "I experimented with a range of models to determine the optimal granularity of features based on my limited sample set from THEME Reports, historical market and demographic data. After iterating through approaches, I found that Partial Least Squares Regression was the most effective model given the sample size. By expanding the model, doing extensive feature relevance analysis, and introducing loglines as a stand-in for screenplay contents, I was able to bring the model’s confidence interval to sensible results.",
+                projectDesc: "I experimented with a range of models to determine the optimal granularity of features based on my limited sample set from Comscore's THEME Reports, historical market and demographic data. After iterating through approaches, I found that Partial Least Squares Regression was the most effective model given the sample size. By expanding the model, doing extensive feature relevance analysis, and introducing loglines as a stand-in for screenplay contents, I was able to bring the model’s confidence interval to sensible results.",
                 skills: ["Python", "Natural Language Processing", "SQLite", "Machine Learning", "Data Engineering", "Technical Writing/Documentation", "Team Collaboration/Communication", "Project Planning/Management"],
                 size: 4.5,
                 position: 360,
@@ -196,7 +196,7 @@ export const solarSystemData = {
                 name: "Web Development & Front-End Design",
                 description: "Projects Timeline",
                 visitability: "",
-                link: null, // No link for sun
+                link: null, 
                 overview: "",
                 projectDesc: "",
                 skills: [],
@@ -208,15 +208,28 @@ export const solarSystemData = {
             },
             {
                 name: "The Mailroom",
-                description: "INTERDEPENDENT Studios | 2024+",
+                description: "INTERDEPENDENT Studios | 2025+",
                 visitability: "Visit",
                 link: "https://interdependent.studio/",
-                overview: "",
-                projectDesc: "",
-                skills: ["Full Stack Web Development", "U.I./U.X. Design"],
+                overview: "INTERDEPENDENT Studios is a startup that leverages real human feedback using embedded telemetry and surveys to train machine learning models for greenlighting decisions from the script alone. The Mailroom is a client-facing portal for the greenlighting process, where the writer can see the progress of their script and the feedback they have received. The portal also allows readers to submit feedback to the writers, which is then also used to train the models.",
+                projectDesc: "Built with modern React/TypeScript stack, this webapp provides authenticated users access to a curated library of film screenplays with an interactive PDF reader interface. The application features phone number OTP authentication, Stripe identity verification for account creation, a modest payment requirement for access, and integrates Adobe PDF Embed SDK for viewing screenplay PDFs with a cinematic-themed UI that enriches the reader's experience and incentivizes telemetry collection.",
+                skills: ["Full Stack Web Development", "U.I./U.X. Design", "Authentication", "Payment Processing", "Telemetry Collection", "React", "TypeScript", "Stripe", "Adobe PDF Embed SDK", "Supabase"],
                 size: 3.2,
                 position: 119,
                 texture: './images/mercury.jpg',
+                gif: './images/new_tower.png'
+            },
+            {
+                name: "Interactive Financial Planner",
+                description: "INTERDEPENDENT Studios | 2025+",
+                visitability: "Visit",
+                link: "https://interdependent.studio/",
+                overview: "I was tasked with designing a financial planner that would help the studio's clients/agents/producers plan their budgets and see forcasted insights from their scripts as well as plan out any and all things film production.",
+                projectDesc: "My designing for this application was focused on UX, and I was able to expand upon the style guide of The Mailroom to create a more cohesive and intuitive site. Using Movie Magic Budgeting as a prehistoric reference, I was able to create a more modern interface that would allow for more confortable budgeting and planning.",
+                skills: ["Full Stack Web Development", "U.I./U.X. Design", "Financial Budgeting", "Microsoft Excel", "React", "TypeScript", "Supabase"],
+                size: 3.7,
+                position: 170,
+                texture: './images/venus.jpg',
                 gif: './images/new_tower.png'
             },
             {
@@ -224,26 +237,26 @@ export const solarSystemData = {
                 description: "USC Rocket Propulsion Lab | 2024+",
                 visitability: "Visit",
                 link: "https://www.uscrpl.com/",
-                overview: "",
-                projectDesc: "",
-                skills: ["Full Stack Web Development", "U.I./U.X. Design"],
-                size: 3.2,
-                position: 240,
-                texture: './images/mercury.jpg',
-                gif: './images/USC_RPL.png'
+                overview: "Building upon the legacy ordering system, I redesigned the frontend to be more user-centric, intuitive, and visually appealing while maintaining full responsiveness. This inventory management system tracks lab disposables and manages purchase orders for all of the lab's subteams and their respective projects, supporting order approval/rejection by authorized users, archival functionality, and I added a cart system to allow for a mainstreamed ordering experience. I also designed 'Buy Again' and 'Frequently Bought Together' abilities to add more modern comforts to the site.",
+                projectDesc: "Developed as a full-stack Node.js/Express web application with EJS templating, SQLite database integration, and modern Tailwind CSS styling. Implemented MVC architecture with dedicated controllers for HTTP request handling, service layer for business logic, and robust database schema for orders, projects, and subteams. The frontend JavaScript handles dynamic order management and real-time status updates, complemented by RESTful API endpoints for comprehensive CRUD operations.",
+                skills: ["Full Stack Web Development", "U.I./U.X. Design", "Node.js", "Express", "SQLite", "Tailwind CSS", "EJS", "MVC Architecture", "RESTful API", "JavaScript", "HTML", "CSS"],
+                size: 3.8,
+                position: 270,
+                texture: './images/earth.jpg',
+                gif: './images/OrderingSystemV3.png'
             },
             {
                 name: "RPL Sendserver",
                 description: "USC Rocket Propulsion Lab | 2024+",
                 visitability: "Visit",
                 link: "https://www.uscrpl.com/", 
-                overview: "",
-                projectDesc: "",
-                skills: ["Full Stack Web Development", "U.I./U.X. Design"],
-                size: 3.8,
-                position: 320,
-                texture: './images/venus.jpg',
-                gif: './images/USC_RPL.png'
+                overview: "The SendServer is mission control hosted on the web, aiding in lab simulations and launches by managing complex rocket trajectory optimization and atmospheric wind data analysis for high-performance solid propellant sounding rockets. It's a full-stack web application built with Python Flask backend, React frontend, and Redis/Celery for asynchronous task processing, featuring real-time data visualization and automated simulation management.",
+                projectDesc: "The SendServer serves as a comprehensive mission control center that enables engineers to input target coordinates, automatically calculate optimal launch angles and azimuths using C++ simulation engines, and scrape real-time atmospheric wind data from external sources. It includes advanced features like asynchronous trajectory optimization, automated wind data collection, real-time logging systems, and interactive dashboards for monitoring Alpha and Sigma rocket systems. The application demonstrates enterprise-level architecture with task queues, Redis caching, and a modern React-based UI for complex scientific simulations.",
+                skills: ["Full Stack Web Development", "Python Flask", "React.js", "Redis/Celery", "Asynchronous Programming", "RESTful APIs", "Real-time Data Visualization", "Task Queue Management", "JavaScript", "HTML", "CSS", "C++ Integration"],
+                size: 3.5,
+                position: 360,
+                texture: './images/mars.jpg',
+                gif: './images/RPL.png'
             },
             {
                 name: "Three-body Portfolio",
@@ -253,9 +266,9 @@ export const solarSystemData = {
                 overview: "Designed, programmed, and deployed--this was my first attempt at making a perfesional website from scratch. This project taught me the basics of both web development and simulating complex celestial systems.",
                 projectDesc: "Developed from scratch using modern web technologies, this website showcases my ability to integrate 3D simulations with three.js while building a (hopefully) clean and responsive portfolio.",
                 skills: ["Blender Modeling", "Full Stack Web Development", "Physics Programming", "Post-Processing and Shaders", "Three.js", "U.I./U.X. Design"],
-                size: 3.8,
-                position: 450,
-                texture: './images/earth.jpg',
+                size: 3.4,
+                position: 480,
+                texture: './images/mercury.jpg',
                 gif: './images/here.png'
             }
         ]
