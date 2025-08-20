@@ -65,7 +65,7 @@ export const solarSystemData = {
                 visitability: "Visit",
                 link: null,
                 overview: "My first major game conquest, developed in Roblox Studio with Lua, where I created a complete design document, modeled 3D assets in Blender, implemented post-processing effects and shaders, and gained comprehensive understanding of game development pipelines. This ambitious project taught me valuable lessons about scope management while solidifying my passion for game design and programming.",
-                projectDesc: "The game follows an intergalactic newspaper boy on a quest to save his robot companion. Along the way, he collects memory fragments that, when combined, reveal the story was a coma-induced dream being narrated by his mother reading him his favorite space adventure storybook at the hospital.",
+                projectDesc: "The game follows an intergalactic newspaper boy on a quest to save his robot companion. Along the way, he collects memory fragments that, when combined, reveal the story was a coma-induced dream being narrated by his mother reading his favorite space adventure storybook to him at the hospital.",
                 skills: ["Blender Modeling", "Game Design/Development", "Lua", "Post-Processing and Shaders", "Technical Writing/Documentation", "U.I./U.X. Design"],
                 size: 4.2,
                 position: 480,

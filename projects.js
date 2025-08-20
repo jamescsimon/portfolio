@@ -44,12 +44,30 @@ function populateProjectsFromPlanetData() {
 // Get projects dynamically
 const projects = populateProjectsFromPlanetData();
 
+// Sort projects chronologically by year (extract year from description)
+projects.sort((a, b) => {
+    const yearA = extractYearFromDescription(a.description);
+    const yearB = extractYearFromDescription(b.description);
+    return yearB - yearA; // Most recent first
+});
+
+// Helper function to extract year from project description
+function extractYearFromDescription(description) {
+    const yearMatch = description.match(/(\d{4})/);
+    return yearMatch ? parseInt(yearMatch[1]) : 0;
+}
+
 const projectsContainer = document.getElementById('projects-container');
 const skillsDropdown = document.getElementById('skillsSearch');
 
 const allSkills = new Set();
 projects.forEach(project => project.skills.forEach(skill => allSkills.add(skill)));
-allSkills.forEach(skill => {
+
+// Sort skills alphabetically
+const sortedSkills = Array.from(allSkills).sort();
+
+// Populate skills dropdown with sorted skills
+sortedSkills.forEach(skill => {
     const option = document.createElement('option');
     option.value = skill;
     option.textContent = skill;

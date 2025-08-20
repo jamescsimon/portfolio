@@ -230,21 +230,84 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
   background: rgba(0, 0, 0, 0.5);
 }
 
-#skillsSearch {
+#filter {
   position: absolute;
   top: 15%;
-  left: 60%;
-  transform: translateX(-50%);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
+  left: 75%;
+  transform: translateX(-100%);
   z-index: 10002;
-  font-size: 160%;
-  background: #2929296c;
-  border: 1px solid #fffdfd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#filter label {
+  color: white;
+  font-size: 1.2em;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#skillsSearch {
+  position: relative;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  z-index: 10002;
+  font-size: 1.1em;
+  background: rgba(41, 41, 41, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   width: auto;
-  max-width: 31%;
+  min-width: 200px;
+  max-width: 300px;
   overflow: hidden;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+#skillsSearch:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(41, 41, 41, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#skillsSearch:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(41, 41, 41, 0.95);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+#skillsSearch option {
+  background: rgba(20, 20, 20, 0.95);
+  color: white;
+  padding: 10px;
+  border: none;
+  font-family: 'Kanit', sans-serif;
+}
+
+#skillsSearch option:hover {
+  background: rgba(60, 60, 60, 0.95);
+}
+
+/* Responsive adjustments for the filter */
+@media (max-width: 768px) {
+  #filter {
+    top: 12%;
+    left: 75%;
+    transform: translateX(-100%);
+  }
+  
+  #skillsSearch {
+    min-width: 180px;
+    font-size: 1em;
+    padding: 10px 15px;
+  }
 }
 
 .project {
@@ -332,6 +395,7 @@ canvas {
 }
 
 #planet-wrapper #planetName { /* planets! */
+  /* Base styles for individual planet view */
   position: absolute;
   top: 3.5%;
   left: 6.95%;
@@ -344,8 +408,9 @@ canvas {
 }
 
 #planet-wrapper #planetDesc { /* planets! */
+  /* Base styles for individual planet view */
   position: absolute;
-  top: 15%; /* fallback position */
+  top: 15%;
   left: 6.95%;
   color: white;
   font-size: clamp(0.4rem, 2.5vw, 2.5rem);
@@ -358,13 +423,14 @@ canvas {
 #planet-wrapper #planetName.centered-planet-name { /* planets! */
   position: absolute !important;
   top: 3.5% !important;
-  left: 45% !important;
+  left: 50% !important;
   transform: translateX(-50%) !important;
   text-align: center !important;
   width: 100% !important;
   z-index: 10002 !important;
   color: white !important;
   font-size: clamp(0.6rem, 3.5vw, 3.5rem) !important;
+  max-width: 100% !important;
 }
 
 #planet-wrapper #planetDesc.centered-planet-desc { /* planets! */
@@ -377,22 +443,10 @@ canvas {
   z-index: 10002 !important;
   color: white !important;
   font-size: clamp(0.4rem, 2.5vw, 2.5rem) !important;
+  max-width: 100% !important;
 }
 
-#planet-wrapper {
-  aspect-ratio: 1600 / 770;
-  width: 90vw;
-  max-width: 1600px;
-  height: auto;
-  max-height: 90vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #b4464600;
-  box-sizing: border-box;
-  overflow: visible;
-}
+
 
 #planet-wrapper .descContainer { /* planets */
   position: absolute;
@@ -847,23 +901,7 @@ button:hover {
   white-space: nowrap;
 }
 
-  #skillsSearch {
-  position: absolute;
-  top: 21vw;
-  transform: translate(0%);
-  left: auto;
-  right: 9vw;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  z-index: 10002;
-  font-size: 85%;
-  background: #2929296c;
-  border: 1px solid #fffdfd;
-  width: auto;
-  max-width: 31%;
-  overflow: hidden;
-}
+
 
   #projects-container {
   position: absolute;
