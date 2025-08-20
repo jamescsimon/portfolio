@@ -24,6 +24,11 @@ document.body.appendChild(renderer.domElement);
 
 //controls
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = false;
+controls.enableRotate = false;  // Disable rotation
+controls.enablePan = false;     // Disable panning
+controls.enableDamping = false; // Disable damping for immediate response
+controls.update();
 const BLOOM_LAYER = 1; // Bloom layer
 const DEFAULT_LAYER = 0; // Default layer
 

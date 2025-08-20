@@ -43,6 +43,10 @@ window.addEventListener('resize', onResize);
 onResize();
 
 const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.enableZoom = false;
+orbit.enableRotate = false;  // Disable rotation
+orbit.enablePan = false;     // Disable panning
+orbit.enableDamping = false; // Disable damping for immediate response
 orbit.update();
 
 const ambLight = new THREE.AmbientLight(0x404040, 0.5); 
