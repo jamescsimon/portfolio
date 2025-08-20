@@ -39,8 +39,11 @@ export function initializeSolarSystem(systemName, scene, textureLoader, cam, sca
     console.log('Setting up initial sun view...');
     handleSunView();
     
-    // Set initial text for sun view
-    updateText();
+    // Set initial text for sun view AFTER CSS classes are applied
+    // Use a small delay to ensure CSS classes are properly applied
+    setTimeout(() => {
+        updateText();
+    }, 10);
     
     console.log('Solar system initialization complete');
     return true;
@@ -146,14 +149,21 @@ function adjustDescriptionPosition() {
     
     if (!planetName || !planetDesc) return;
     
-    // Scale font size to fit width for planet name
-    scaleTextToFit(planetName, 45); // 45% max width to avoid overlap with container
+    // Check if we're in sun view (centered text)
+    const isSunView = planetName.classList.contains('centered-planet-name');
+    
+    if (isSunView) {
+        // For sun view, use wider constraints since text is centered
+        scaleTextToFit(planetName, 80); // 80% max width for centered text
+        scaleTextToFit(planetDesc, 80); // 80% max width for centered text
+    } else {
+        // For planet view, use tighter constraints to avoid overlap
+        scaleTextToFit(planetName, 45); // 45% max width to avoid overlap with container
+        scaleTextToFit(planetDesc, 45); // 45% max width
+    }
     
     // Keep description at static position (15% from CSS)
     planetDesc.style.top = '15%';
-    
-    // Also scale the description text to fit
-    scaleTextToFit(planetDesc, 45); // 45% max width
 }
 
 // Scale text to fit within a percentage width of the viewport
