@@ -840,18 +840,18 @@ button:hover {
      white-space: nowrap;
  }
 
- #aboutDesc { /* about */
-     position: absolute;
-     bottom: 7vw;
-     top: auto;
-     left: 8vw;
-     color: white;
-     font-size: 4vw;
-     z-index: 10001;
-     max-width: 84vw;
-     white-space: normal;
-     transform: translateX(0%);
- }
+   #aboutDesc { /* about */
+      position: absolute;
+      top: 90vw;
+      left: 8vw;
+      color: white;
+      font-size: 3.5vw;
+      z-index: 10001;
+      max-width: 85vw;
+      white-space: normal;
+      transform: translateX(0%);
+      line-height: 1.4;
+  }
 
   #contactHeader {
   position: absolute;
@@ -900,8 +900,6 @@ button:hover {
   max-width: 200%;
   white-space: nowrap;
 }
-
-
 
   #projects-container {
   position: absolute;
@@ -991,10 +989,11 @@ button:hover {
   }
   
   #about-logo {
-    top: 20%;
+    top: -5vw;
+    transform: translateX(5%);
   }
   
   .about-logo-image {
-    height: 60px; /* 3 times the mobile logo size (40px) */
+    height: 60vw; /* 3 times the mobile logo size (40px) */
   }
 }
