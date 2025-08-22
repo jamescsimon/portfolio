@@ -380,7 +380,7 @@ canvas {
   height: 5.5%;
   opacity: 0;
   transform: translateY(-50%);
-  z-index: 99999;
+  z-index: 999999;
 }
 
 #planet-wrapper #lB { /* planets */
@@ -391,7 +391,7 @@ canvas {
   height: 5.5%;
   opacity: 0;
   transform: translateY(-50%);
-  z-index: 99999;
+  z-index: 999999;
 }
 
 #planet-wrapper #planetName { /* planets! */
@@ -719,7 +719,8 @@ button:hover {
 /* Styling for clickable visitability text */
 .clickable-visitability {
     transition: all 0.3s ease;
-}
+    max-width: clamp(1rem, 10vw, 10rem);
+  }
 
 .clickable-visitability:hover {
     color: #ffd700; /* Gold color on hover */
