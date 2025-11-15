@@ -232,9 +232,9 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
 
 #filter {
   position: absolute;
-  top: 15%;
+  bottom: 15%;
   left: 75%;
-  transform: translateX(-100%);
+  transform: translateX(0%);
   z-index: 10002;
   display: flex;
   flex-direction: column;
@@ -299,14 +299,18 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
 @media (max-width: 768px) {
   #filter {
     top: 12%;
-    left: 75%;
-    transform: translateX(-100%);
+    left: 15%;
+    right:15%;
+    height: auto;
+    transform: translateX(0%);
   }
   
   #skillsSearch {
     min-width: 180px;
     font-size: 1em;
     padding: 10px 15px;
+    top: 145vw !important;
+    transform: translateX(9%) !important;
   }
 }
 
@@ -904,7 +908,8 @@ button:hover {
 
   #projects-container {
   position: absolute;
-  top: 20%;
+  top: 15% !important;
+  bottom: 15% !important;
   left: 50%;
   transform: translate(-50%);
   display: flex;
@@ -912,7 +917,7 @@ button:hover {
   gap: 10px;
   width: 90vw;
   max-width: 1200px;
-  height: 120vw;
+  max-height: 130vw;
   padding: 10px;
   margin: 0 auto;
   overflow-y: auto;

@@ -193,7 +193,7 @@ function updateGlows() {
                 glowBlueSprite.position.copy(hoveredStar.position);
                 glowBlueSprite.scale.set(45, 45, 1);
             } else if (hoveredStar.name === "yellow") {
-                document.getElementById('projectCategory').textContent = 'Web Development & Front-End Design';
+                document.getElementById('projectCategory').textContent = 'Full-Stack Software Development';
                 glowYellowSprite.visible = true;
                 glowYellowSprite.position.copy(hoveredStar.position);
                 glowYellowSprite.scale.set(45, 45, 1);
