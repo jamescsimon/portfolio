@@ -89,11 +89,17 @@ function initializeTrailerImages() {
     
     // Set the src attributes of gif elements based on planet data
     currentSystem.planets.forEach((planetData, index) => {
-        if (!planetData.isSun && planetData.gif) {
+        if (!planetData.isSun) {
             const gifElement = document.getElementById(`gif${index}`);
             if (gifElement) {
-                gifElement.src = planetData.gif;
-                console.log(`Set gif${index} src to: ${planetData.gif}`);
+                if (planetData.gif) {
+                    gifElement.src = planetData.gif;
+                    console.log(`Set gif${index} src to: ${planetData.gif}`);
+                } else {
+                    // Clear the src if no gif is specified
+                    gifElement.src = '';
+                    console.log(`Cleared gif${index} src (no gif specified)`);
+                }
             }
         }
     });

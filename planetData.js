@@ -264,7 +264,7 @@ export const solarSystemData = {
                 size: 4.2,
                 position: 930,
                 texture: './images/venus.jpg',
-                gif: './images/FRG_ex.png'
+                gif: './images/frg.png'
             },
             {
                 name: "Reader Sentiment Estimator (RSE) & Reader Retention Estimator (RRE)",
