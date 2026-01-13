@@ -166,7 +166,7 @@ export const solarSystemData = {
                 size: 4.3,
                 position: 300,
                 texture: './images/mercury.jpg',
-                gif: './images/obesity_research.gif'
+                gif: './images/USC-Viterbi-School-of-Engineering.webp'
             },
             {
                 name: "FlyBioCyborg - Fly Brain Connectome Modeling",
