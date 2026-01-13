@@ -242,7 +242,7 @@ function handleSunView() {
     }
     
     // Hide all gifs
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 20; i++) {
         const gif = document.getElementById(`gif${i}`);
         if (gif) {
             gif.style.display = 'none';
@@ -304,7 +304,7 @@ function handlePlanetView(planetIndex) {
     if (sight) sight.style.display = 'block';
     
     // Handle gif visibility - show only the gif for the current planet
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 20; i++) {
         const gif = document.getElementById(`gif${i}`);
         if (gif) {
             if (i === planetIndex) {
