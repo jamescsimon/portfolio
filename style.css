@@ -30,6 +30,11 @@ body, html { /* all pages */
   top: 0;
   width: 100%;
   z-index: 10000;
+  pointer-events: auto;
+}
+
+#navbar li a {
+  pointer-events: auto;
 }
 
 lu { /* all pages, bottom copywrite statement */ /*adjusted!*/
