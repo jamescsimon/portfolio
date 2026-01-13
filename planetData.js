@@ -37,7 +37,7 @@ export const solarSystemData = {
             },
             {
                 name: "Cat Counselor",
-                description: "USC Advanged Games Project | 2023-24",
+                description: "USC Advanged Games Project | 2024, 2026+",
                 year: 2024,
                 visitability: "Visit",
                 link: "https://www.cs.usc.edu/newsletter/ug-ms-agp-2026-27-greenlight-and-agp-pre-pro-orientation-follow-ups/",
