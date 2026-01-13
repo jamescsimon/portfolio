@@ -123,6 +123,101 @@ glowPinkSprite.visible = false;
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 let hoveredStar = null;
+
+// Sound effects for planet hover - randomly choose one
+const hoverSounds = [
+    new Audio('./sounds/hover-planet1.mp3'),
+    new Audio('./sounds/hover-planet2.mp3'),
+    new Audio('./sounds/hover-planet3.mp3')
+];
+// Set volume for all sounds
+hoverSounds.forEach(sound => {
+    sound.volume = 0.3; // Set volume to 30%
+});
+
+// Sound effect for planet selection
+const selectSound = new Audio('./sounds/select-planet.mp3');
+selectSound.volume = 0.3; // Set volume to 30%
+
+// Cooldown for hover sounds on page load
+let hoverSoundsEnabled = false;
+setTimeout(() => {
+    hoverSoundsEnabled = true;
+}, 1500); // 1.5 second cooldown
+
+// Logo hover and click sounds
+let logoHovered = false;
+window.addEventListener('DOMContentLoaded', () => {
+    const logoLink = document.querySelector('#logo a');
+    if (logoLink) {
+        // Hover sound for logo
+        logoLink.addEventListener('mouseenter', () => {
+            if (!logoHovered) {
+                logoHovered = true;
+                const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+                randomSound.currentTime = 0;
+                randomSound.play().catch(err => {});
+            }
+        });
+        
+        logoLink.addEventListener('mouseleave', () => {
+            logoHovered = false;
+        });
+        
+        // Click sound for logo - wait for sound to finish before redirecting
+        logoLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent immediate navigation
+            const targetUrl = logoLink.getAttribute('href');
+            
+            selectSound.currentTime = 0;
+            selectSound.play().then(() => {
+                selectSound.onended = () => {
+                    window.location.href = targetUrl;
+                };
+            }).catch(err => {
+                window.location.href = targetUrl;
+            });
+        });
+    }
+    
+    // Hover and select sounds for navbar tabs
+    const navbarLinks = document.querySelectorAll('#navbar li a');
+    navbarLinks.forEach(link => {
+        let navHovered = false;
+        
+        link.addEventListener('mouseenter', () => {
+            if (!navHovered) {
+                navHovered = true;
+                const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+                randomSound.currentTime = 0;
+                randomSound.play().catch(err => {});
+            }
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            navHovered = false;
+        });
+        
+        // Click sound for navbar links - wait for sound to finish before redirecting
+        link.addEventListener('click', (e) => {
+            const targetUrl = link.getAttribute('href');
+            // Don't prevent default for download links or external links
+            if (targetUrl && !targetUrl.startsWith('#') && !link.hasAttribute('download')) {
+                e.preventDefault();
+                
+                selectSound.currentTime = 0;
+                selectSound.play().then(() => {
+                    selectSound.onended = () => {
+                        window.location.href = targetUrl;
+                    };
+                }).catch(err => {
+                    window.location.href = targetUrl;
+                });
+            }
+        });
+    });
+});
+
 window.addEventListener('mousemove', (event) => {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -141,19 +236,32 @@ window.addEventListener('click', (event) => {
 
     if (intersects.length > 0) {
         const clickedObject = intersects[0].object;
+        let targetUrl = null;
 
-        // Check if the clicked object is the blue star
+        // Determine which planet was clicked
         if (clickedObject.name === "blue") {
-            // Redirect to blue.html
-            window.location.href = "blue.html";
+            targetUrl = "blue.html";
         }
         else if (clickedObject.name === "yellow") {
-            // Redirect to yellow.html
-            window.location.href = "yellow.html";
+            targetUrl = "yellow.html";
         }
         else if (clickedObject.name === "pink") {
-            // Redirect to pink.html
-            window.location.href = "pink.html";
+            targetUrl = "pink.html";
+        }
+
+        // If a planet was clicked, play sound and wait for it to finish before redirecting
+        if (targetUrl) {
+            selectSound.currentTime = 0; // Reset to start
+            selectSound.play().then(() => {
+                // Wait for sound to finish before redirecting
+                selectSound.onended = () => {
+                    window.location.href = targetUrl;
+                };
+            }).catch(err => {
+                // If sound fails to play, redirect immediately
+                console.log('Sound play failed:', err);
+                window.location.href = targetUrl;
+            });
         }
     }
 });
@@ -180,6 +288,15 @@ function updateGlows() {
 
         if (hoveredStar !== firstIntersected) {
             hoveredStar = firstIntersected;
+
+            // Play random hover sound effect (only if cooldown has passed)
+            if (hoverSoundsEnabled) {
+                const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+                randomSound.currentTime = 0; // Reset to start
+                randomSound.play().catch(err => {
+                    // Ignore errors (e.g., if user hasn't interacted with page yet)
+                });
+            }
 
             // Reset visibility for all glow sprites
             glowBlueSprite.visible = false;

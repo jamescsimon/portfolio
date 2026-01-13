@@ -46,34 +46,102 @@ loader.load(
     }
 );
 
-function checkLegs() {
+// Track field states for sound effects
+let fieldStates = {
+    name: false,
+    email: false,
+    message: false
+};
 
-    if(document.getElementById("contName").value === ""){
-        //bottom section
+// Wrench sounds - one of each type played simultaneously when field is filled
+const socketWrenchSounds = [
+    new Audio('./sounds/socket-wrench1.mp3'),
+    new Audio('./sounds/socket-wrench2.mp3'),
+    new Audio('./sounds/socket-wrench3.mp3')
+];
+const airWrenchSounds = [
+    new Audio('./sounds/air-wrench1.mp3'),
+    new Audio('./sounds/air-wrench2.mp3'),
+    new Audio('./sounds/air-wrench3.mp3')
+];
+const airImpactWrenchSounds = [
+    new Audio('./sounds/air-impact-wrench1.mp3'),
+    new Audio('./sounds/air-impact-wrench2.mp3'),
+    new Audio('./sounds/air-impact-wrench3.mp3')
+];
+
+// Set volume for all wrench sounds
+socketWrenchSounds.forEach(sound => sound.volume = 0.3);
+airWrenchSounds.forEach(sound => sound.volume = 0.3);
+airImpactWrenchSounds.forEach(sound => sound.volume = 0.3);
+
+function playWrenchSounds() {
+    // Always play socket wrench (randomly choose which one)
+    const socketSound = socketWrenchSounds[Math.floor(Math.random() * socketWrenchSounds.length)];
+    
+    // Randomly choose either air wrench OR air impact wrench
+    const useAirWrench = Math.random() < 0.5;
+    let secondSound;
+    if (useAirWrench) {
+        secondSound = airWrenchSounds[Math.floor(Math.random() * airWrenchSounds.length)];
+    } else {
+        secondSound = airImpactWrenchSounds[Math.floor(Math.random() * airImpactWrenchSounds.length)];
+    }
+    
+    socketSound.currentTime = 0;
+    secondSound.currentTime = 0;
+    
+    socketSound.play().catch(err => {});
+    secondSound.play().catch(err => {});
+}
+
+function checkLegs() {
+    const nameField = document.getElementById("contName");
+    const emailField = document.getElementById("contEmail");
+    const messageField = document.getElementById("contMessage");
+
+    // Check name field
+    if(nameField.value === ""){
+        fieldStates.name = false;
     }
     else {
+        if (!fieldStates.name) {
+            // Field just became filled, play sounds
+            playWrenchSounds();
+            fieldStates.name = true;
+        }
         scene.getObjectByName("legs").position.set(0, -1, 0);
         scene.getObjectByName("bottom").position.set(0, -1, 0);
         document.getElementById('contactInstructions').textContent = "";
     }
 
-    if(document.getElementById("contEmail").value === ""){
-        //mid section
+    // Check email field
+    if(emailField.value === ""){
+        fieldStates.email = false;
     }
     else {
+        if (!fieldStates.email) {
+            // Field just became filled, play sounds
+            playWrenchSounds();
+            fieldStates.email = true;
+        }
         scene.getObjectByName("mid").position.set(0, -1, 0);
         document.getElementById('contactInstructions').textContent = "";
     }
 
-    if(document.getElementById("contMessage").value === ""){
-        //mid section
+    // Check message field
+    if(messageField.value === ""){
+        fieldStates.message = false;
     }
     else {
+        if (!fieldStates.message) {
+            // Field just became filled, play sounds
+            playWrenchSounds();
+            fieldStates.message = true;
+        }
         scene.getObjectByName("top").position.set(0, -1, 0);
         document.getElementById('contactInstructions').textContent = "";
     }
-
-
 }
 
 loader.load(
@@ -185,6 +253,108 @@ window.addEventListener('resize', function () {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     adjustCameraForDevice(); 
+});
+
+// Logo hover and click sounds
+const hoverSounds = [
+    new Audio('./sounds/hover-planet1.mp3'),
+    new Audio('./sounds/hover-planet2.mp3'),
+    new Audio('./sounds/hover-planet3.mp3')
+];
+hoverSounds.forEach(sound => {
+    sound.volume = 0.3;
+});
+
+const selectSound = new Audio('./sounds/select-planet.mp3');
+selectSound.volume = 0.3;
+
+let logoHovered = false;
+
+// Visit sound for launch button
+const visitSound = new Audio('./sounds/visit.mp3');
+visitSound.volume = 0.3;
+
+window.addEventListener('DOMContentLoaded', () => {
+    const logoLink = document.querySelector('#logo a');
+    if (logoLink) {
+        // Hover sound for logo
+        logoLink.addEventListener('mouseenter', () => {
+            if (!logoHovered) {
+                logoHovered = true;
+                const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+                randomSound.currentTime = 0;
+                randomSound.play().catch(err => {});
+            }
+        });
+        
+        logoLink.addEventListener('mouseleave', () => {
+            logoHovered = false;
+        });
+        
+        // Click sound for logo - wait for sound to finish before redirecting
+        logoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetUrl = logoLink.getAttribute('href');
+            
+            selectSound.currentTime = 0;
+            selectSound.play().then(() => {
+                selectSound.onended = () => {
+                    window.location.href = targetUrl;
+                };
+            }).catch(err => {
+                window.location.href = targetUrl;
+            });
+        });
+    }
+    
+    // Hover and select sounds for navbar tabs
+    const navbarLinks = document.querySelectorAll('#navbar li a');
+    navbarLinks.forEach(link => {
+        let navHovered = false;
+        
+        link.addEventListener('mouseenter', () => {
+            if (!navHovered) {
+                navHovered = true;
+                const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+                randomSound.currentTime = 0;
+                randomSound.play().catch(err => {});
+            }
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            navHovered = false;
+        });
+        
+        // Click sound for navbar links - wait for sound to finish before redirecting
+        link.addEventListener('click', (e) => {
+            const targetUrl = link.getAttribute('href');
+            // Don't prevent default for download links or external links
+            if (targetUrl && !targetUrl.startsWith('#') && !link.hasAttribute('download')) {
+                e.preventDefault();
+                
+                selectSound.currentTime = 0;
+                selectSound.play().then(() => {
+                    selectSound.onended = () => {
+                        window.location.href = targetUrl;
+                    };
+                }).catch(err => {
+                    window.location.href = targetUrl;
+                });
+            }
+        });
+    });
+    
+    // Visit sound for launch button
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            if (visitSound) {
+                visitSound.currentTime = 0;
+                visitSound.play().catch(err => {});
+            }
+            // Let the form submit normally
+        });
+    }
 });
 
 // Background

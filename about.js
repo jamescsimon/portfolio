@@ -330,6 +330,58 @@ window.addEventListener('resize', function () {
 //     }
 // });
 
+// Sound effects for navbar
+const hoverSounds = [
+    new Audio('./sounds/hover-planet1.mp3'),
+    new Audio('./sounds/hover-planet2.mp3'),
+    new Audio('./sounds/hover-planet3.mp3')
+];
+hoverSounds.forEach(sound => {
+    sound.volume = 0.3;
+});
+
+const selectSound = new Audio('./sounds/select-planet.mp3');
+selectSound.volume = 0.3;
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Hover and select sounds for navbar tabs
+    const navbarLinks = document.querySelectorAll('#navbar li a');
+    navbarLinks.forEach(link => {
+        let navHovered = false;
+        
+        link.addEventListener('mouseenter', () => {
+            if (!navHovered) {
+                navHovered = true;
+                const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+                randomSound.currentTime = 0;
+                randomSound.play().catch(err => {});
+            }
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            navHovered = false;
+        });
+        
+        // Click sound for navbar links - wait for sound to finish before redirecting
+        link.addEventListener('click', (e) => {
+            const targetUrl = link.getAttribute('href');
+            // Don't prevent default for download links or external links
+            if (targetUrl && !targetUrl.startsWith('#') && !link.hasAttribute('download')) {
+                e.preventDefault();
+                
+                selectSound.currentTime = 0;
+                selectSound.play().then(() => {
+                    selectSound.onended = () => {
+                        window.location.href = targetUrl;
+                    };
+                }).catch(err => {
+                    window.location.href = targetUrl;
+                });
+            }
+        });
+    });
+});
+
 // Background
 const bgst = new THREE.TextureLoader().load('images/stars.jpg');
 scene.background = bgst;

@@ -68,8 +68,85 @@ function createPlanets(scene, textureLoader) {
         } else {
             // Create regular planet
             const geo = new THREE.SphereGeometry(planetData.size, 30, 30);
+            const texture = textureLoader.load(planetData.texture);
+            
+            // Determine which instance of this texture this planet is
+            let textureInstance = 0;
+            for (let i = 0; i < index; i++) {
+                if (!currentSystem.planets[i].isSun && currentSystem.planets[i].texture === planetData.texture) {
+                    textureInstance++;
+                }
+            }
+            
+            // Apply color variations based on texture and instance - very pronounced colors
+            let colorTint = new THREE.Color(1, 1, 1); // Default white
+            let emissiveColor = new THREE.Color(0, 0, 0);
+            let emissiveIntensity = 0;
+            let roughness = 0.7;
+            let metalness = 0.1;
+            
+            if (planetData.texture === './images/venus.jpg') {
+                const venusColors = [
+                    [1.0, 1.0, 1.0],    // Original - no tint
+                    [1.0, 0.7, 0.4],    // Strong orange tint
+                    [1.0, 0.4, 0.8],    // Strong pink tint
+                    [0.4, 1.0, 0.6]     // Strong green tint
+                ];
+                const colorValues = venusColors[textureInstance % venusColors.length];
+                colorTint = new THREE.Color(colorValues[0], colorValues[1], colorValues[2]);
+                if (textureInstance % venusColors.length > 0) {
+                    emissiveColor = new THREE.Color(colorValues[0] * 0.4, colorValues[1] * 0.4, colorValues[2] * 0.4);
+                    emissiveIntensity = 0.3;
+                }
+            } else if (planetData.texture === './images/mercury.jpg') {
+                const mercuryColors = [
+                    [1.0, 1.0, 1.0],    // Original - no tint
+                    [0.4, 0.6, 1.0],    // Strong blue tint
+                    [1.0, 1.0, 0.4],    // Strong yellow tint
+                    [1.0, 0.6, 1.0],    // Strong pink tint
+                    [0.6, 0.8, 1.0]     // Strong light blue tint
+                ];
+                const colorValues = mercuryColors[textureInstance % mercuryColors.length];
+                colorTint = new THREE.Color(colorValues[0], colorValues[1], colorValues[2]);
+                if (textureInstance % mercuryColors.length > 0) {
+                    emissiveColor = new THREE.Color(colorValues[0] * 0.4, colorValues[1] * 0.4, colorValues[2] * 0.4);
+                    emissiveIntensity = 0.25;
+                }
+            } else if (planetData.texture === './images/earth.jpg') {
+                const earthColors = [
+                    [1.0, 1.0, 1.0],    // Original - no tint
+                    [0.4, 1.0, 1.0],    // Strong cyan tint
+                    [1.0, 1.0, 0.6],    // Strong yellow tint
+                    [1.0, 0.8, 0.4]     // Strong orange tint
+                ];
+                const colorValues = earthColors[textureInstance % earthColors.length];
+                colorTint = new THREE.Color(colorValues[0], colorValues[1], colorValues[2]);
+                if (textureInstance % earthColors.length > 0) {
+                    emissiveColor = new THREE.Color(colorValues[0] * 0.4, colorValues[1] * 0.4, colorValues[2] * 0.4);
+                    emissiveIntensity = 0.3;
+                }
+            } else if (planetData.texture === './images/mars.jpg') {
+                const marsColors = [
+                    [1.0, 1.0, 1.0],    // Original - no tint
+                    [1.0, 0.6, 0.4],    // Strong orange tint
+                    [1.0, 0.4, 0.4],    // Strong red tint
+                    [1.0, 0.5, 0.5]     // Strong coral tint
+                ];
+                const colorValues = marsColors[textureInstance % marsColors.length];
+                colorTint = new THREE.Color(colorValues[0], colorValues[1], colorValues[2]);
+                if (textureInstance % marsColors.length > 0) {
+                    emissiveColor = new THREE.Color(colorValues[0] * 0.5, colorValues[1] * 0.5, colorValues[2] * 0.5);
+                    emissiveIntensity = 0.35;
+                }
+            }
+            
             const mat = new THREE.MeshStandardMaterial({
-                map: textureLoader.load(planetData.texture)
+                map: texture,
+                color: colorTint,
+                emissive: emissiveColor,
+                emissiveIntensity: emissiveIntensity,
+                roughness: roughness,
+                metalness: metalness
             });
             const mesh = new THREE.Mesh(geo, mat);
             const obj = new THREE.Object3D();
@@ -126,6 +203,13 @@ export function updateText() {
         visitabilityElement.style.cursor = 'pointer';
         visitabilityElement.classList.add('clickable-visitability');
         visitabilityElement.onclick = () => {
+            // Play visit sound (only if cooldown has passed)
+            if (visitSound && soundsEnabled) {
+                visitSound.currentTime = 0;
+                visitSound.play().catch(err => {
+                    console.log('Visit sound play failed:', err);
+                });
+            }
             window.open(planet.link, '_blank');
         };
     } else {
@@ -330,20 +414,77 @@ export function camNext() {
     if (ci < cmax) {
         ci += 1;
         console.log("ci=", ci);
+        // Play navigation sound (only if cooldown has passed)
+        if (planetNavSound && soundsEnabled) {
+            planetNavSound.currentTime = 0;
+            planetNavSound.play().catch(err => {
+                console.log('Navigation sound play failed:', err);
+            });
+        }
         updateText();
         handleCameraAndUI();
     }
 }
+
+// Sound effect for going back to select page
+let backToSelectSound = null;
+if (typeof Audio !== 'undefined') {
+    backToSelectSound = new Audio('./sounds/back-to-select.mp3');
+    backToSelectSound.volume = 0.3; // Set volume to 30%
+}
+
+// Sound effect for planet navigation
+let planetNavSound = null;
+if (typeof Audio !== 'undefined') {
+    planetNavSound = new Audio('./sounds/planet-nav.mp3');
+    planetNavSound.volume = 0.3; // Set volume to 30%
+}
+
+// Sound effect for visit button
+let visitSound = null;
+if (typeof Audio !== 'undefined') {
+    visitSound = new Audio('./sounds/visit.mp3');
+    visitSound.volume = 0.3; // Set volume to 30%
+}
+
+// Cooldown for all sounds on page load
+let soundsEnabled = false;
+setTimeout(() => {
+    soundsEnabled = true;
+}, 1500); // 1.5 second cooldown
 
 // Camera previous function - completely automatic
 export function camPrev() {
     if (ci > 0) {
         ci -= 1;
         console.log("ci=", ci);
+        // Play navigation sound (only if cooldown has passed)
+        if (planetNavSound && soundsEnabled) {
+            planetNavSound.currentTime = 0;
+            planetNavSound.play().catch(err => {
+                console.log('Navigation sound play failed:', err);
+            });
+        }
         updateText();
         handleCameraAndUI();
     } else if (ci == 0) {
-        window.location.href = "index.html";
+        // Play sound and wait for it to finish before redirecting (only if cooldown has passed)
+        if (backToSelectSound && soundsEnabled) {
+            backToSelectSound.currentTime = 0; // Reset to start
+            backToSelectSound.play().then(() => {
+                // Wait for sound to finish before redirecting
+                backToSelectSound.onended = () => {
+                    window.location.href = "index.html";
+                };
+            }).catch(err => {
+                // If sound fails to play, redirect immediately
+                console.log('Sound play failed:', err);
+                window.location.href = "index.html";
+            });
+        } else {
+            // If sound not available or cooldown active, redirect immediately
+            window.location.href = "index.html";
+        }
         return;
     }
 }

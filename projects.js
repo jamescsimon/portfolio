@@ -63,8 +63,10 @@ const skillsDropdown = document.getElementById('skillsSearch');
 const allSkills = new Set();
 projects.forEach(project => project.skills.forEach(skill => allSkills.add(skill)));
 
-// Sort skills alphabetically
-const sortedSkills = Array.from(allSkills).sort();
+// Sort skills alphabetically (case-insensitive)
+const sortedSkills = Array.from(allSkills).sort((a, b) => 
+    a.toLowerCase().localeCompare(b.toLowerCase())
+);
 
 // Populate skills dropdown with sorted skills
 sortedSkills.forEach(skill => {
@@ -100,15 +102,22 @@ window.addEventListener('click', (event) => {
         const target = clickedElement.getAttribute('data-target'); // Get the target from the data attribute
         const projName = clickedElement.getAttribute('name'); // Get the name of the project
 
-        console.log('Clicked Project Name:', projName); // Debugging
-        console.log('Target Page:', target); // Debugging
-
         const ci = projects.find(project => project.name === projName)?.ci; // Find the ci property
-        console.log('CI Value:', ci); // Debugging
 
         if (target) {
-            // Pass the ci value in the query string
-            window.location.href = `${target}?ci=${ci}`;
+            event.preventDefault(); // Prevent immediate navigation
+            
+            // Play select sound and wait for it to finish before redirecting
+            selectSound.currentTime = 0;
+            selectSound.play().then(() => {
+                selectSound.onended = () => {
+                    // Pass the ci value in the query string
+                    window.location.href = `${target}?ci=${ci}`;
+                };
+            }).catch(err => {
+                // If sound fails to play, redirect immediately
+                window.location.href = `${target}?ci=${ci}`;
+            });
         }
     }
 });
@@ -219,6 +228,93 @@ window.addEventListener('keydown', function (event) {
         const elevation = Math.random() * 40 - 20; 
         createComet(size, elevation); 
     }
+});
+
+// Sound effects for navbar
+const hoverSounds = [
+    new Audio('./sounds/hover-planet1.mp3'),
+    new Audio('./sounds/hover-planet2.mp3'),
+    new Audio('./sounds/hover-planet3.mp3')
+];
+hoverSounds.forEach(sound => {
+    sound.volume = 0.3;
+});
+
+const selectSound = new Audio('./sounds/select-planet.mp3');
+selectSound.volume = 0.3;
+
+window.addEventListener('DOMContentLoaded', () => {
+    // Logo hover and click sounds
+    const logoLink = document.querySelector('#logo a');
+    let logoHovered = false;
+    
+    if (logoLink) {
+        // Hover sound for logo
+        logoLink.addEventListener('mouseenter', () => {
+            if (!logoHovered) {
+                logoHovered = true;
+                const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+                randomSound.currentTime = 0;
+                randomSound.play().catch(err => {});
+            }
+        });
+        
+        logoLink.addEventListener('mouseleave', () => {
+            logoHovered = false;
+        });
+        
+        // Click sound for logo - wait for sound to finish before redirecting
+        logoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetUrl = logoLink.getAttribute('href');
+            
+            selectSound.currentTime = 0;
+            selectSound.play().then(() => {
+                selectSound.onended = () => {
+                    window.location.href = targetUrl;
+                };
+            }).catch(err => {
+                window.location.href = targetUrl;
+            });
+        });
+    }
+    
+    // Hover and select sounds for navbar tabs
+    const navbarLinks = document.querySelectorAll('#navbar li a');
+    navbarLinks.forEach(link => {
+        let navHovered = false;
+        
+        link.addEventListener('mouseenter', () => {
+            if (!navHovered) {
+                navHovered = true;
+                const randomSound = hoverSounds[Math.floor(Math.random() * hoverSounds.length)];
+                randomSound.currentTime = 0;
+                randomSound.play().catch(err => {});
+            }
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            navHovered = false;
+        });
+        
+        // Click sound for navbar links - wait for sound to finish before redirecting
+        link.addEventListener('click', (e) => {
+            const targetUrl = link.getAttribute('href');
+            // Don't prevent default for download links or external links
+            if (targetUrl && !targetUrl.startsWith('#') && !link.hasAttribute('download')) {
+                e.preventDefault();
+                
+                selectSound.currentTime = 0;
+                selectSound.play().then(() => {
+                    selectSound.onended = () => {
+                        window.location.href = targetUrl;
+                    };
+                }).catch(err => {
+                    window.location.href = targetUrl;
+                });
+            }
+        });
+    });
 });
 
 // Background
