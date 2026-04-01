@@ -47,7 +47,7 @@ export const solarSystemData = {
                 size: 4.3,
                 position: 210,
                 texture: './images/saturn.jpg',
-                gif: './images/CatCounselor.gif'
+                gif: './images/catcounselor.png'
             },
             {
                 name: "Study of Temperament and Attention Regulation (STAR)",

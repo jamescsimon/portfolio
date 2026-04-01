@@ -2,7 +2,7 @@
 
 This portfolio uses a **truly centralized system** for managing planet data across all three solar systems (blue, pink, and yellow).
 
-## 🎯 **The Promise: Edit ONE File, Add New Planets**
+## **The Promise: Edit ONE File, Add New Planets**
 
 **You asked for a system where you only edit one file to add new planets. Here it is!**
 
@@ -14,7 +14,7 @@ The system consists of three main files:
 2. **`planetUtils.js`** - Shared utility functions for planet management (automatically handles everything)
 3. **Individual planet JS files** - Blue, pink, and yellow pages that use the centralized data
 
-## 🚀 **Adding a New Planet - REALLY Simple!**
+## **Adding a New Planet - REALLY Simple!**
 
 To add a new planet to any solar system, **ONLY edit the `planetData.js` file**:
 
@@ -44,12 +44,12 @@ blue: {
 ```
 
 **That's it!** The system automatically:
-- ✅ Creates the 3D planet in the scene
-- ✅ Positions it correctly in the solar system
-- ✅ Handles camera navigation to/from the planet
-- ✅ Updates all text (name, description, skills, etc.)
-- ✅ Manages UI elements and gif visibility
-- ✅ Handles planet rotation and animation
+- Creates the 3D planet in the scene
+- Positions it correctly in the solar system
+- Handles camera navigation to/from the planet
+- Updates all text (name, description, skills, etc.)
+- Manages UI elements and gif visibility
+- Handles planet rotation and animation
 
 ### Planet Properties
 
@@ -66,21 +66,21 @@ Each planet has these properties:
 - **texture**: Image file for the planet's appearance
 - **gif**: GIF file to show when viewing the planet (optional)
 
-## 🎉 **What You DON'T Need to Edit Anymore**
+## **What You DON'T Need to Edit Anymore**
 
-- ❌ **blue.js** - No planet-specific code needed
-- ❌ **pink.js** - No planet-specific code needed  
-- ❌ **yellow.js** - No planet-specific code needed
-- ❌ **Camera logic** - Handled automatically
-- ❌ **GIF management** - Handled automatically
-- ❌ **Text updates** - Handled automatically
-- ❌ **3D positioning** - Handled automatically
+- **blue.js** - No planet-specific code needed
+- **pink.js** - No planet-specific code needed  
+- **yellow.js** - No planet-specific code needed
+- **Camera logic** - Handled automatically
+- **GIF management** - Handled automatically
+- **Text updates** - Handled automatically
+- **3D positioning** - Handled automatically
 
 ## File Structure
 
 ```
 portfolio/
-├── planetData.js          # 🎯 ONLY FILE YOU EDIT FOR CONTENT
+├── planetData.js          # ONLY FILE YOU EDIT FOR CONTENT
 ├── planetUtils.js         # Shared utility functions (automatic)
 ├── blue.js               # Blue solar system (minimal, automatic)
 ├── pink.js               # Pink solar system (minimal, automatic)
@@ -90,7 +90,7 @@ portfolio/
 └── yellow.html           # Yellow solar system HTML
 ```
 
-## 🏆 **Benefits of This System**
+## **Benefits of This System**
 
 1. **True Centralization**: All planet data is in one place
 2. **Zero Code Changes**: Add planets by editing only the data file
@@ -99,7 +99,7 @@ portfolio/
 5. **Scalable**: Easy to add new solar systems or planets
 6. **Future-Proof**: Adding new planets takes seconds, not hours
 
-## 🌟 **Real Example**
+## **Real Example**
 
 I just added a new planet called "Future Project" to the blue solar system. Here's what happened:
 

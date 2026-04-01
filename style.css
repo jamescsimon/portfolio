@@ -94,7 +94,7 @@ lu { /* all pages, bottom copywrite statement */ /*adjusted!*/
 }
 
 .about-logo-image {
-  height: 24vw; /* 3 times the normal 6vw size */
+  height: clamp(12rem, 24vw, 25rem); /* 3 times the normal 6vw size */
   width: auto;
   opacity: 0.9;
   transition: opacity 0.3s ease;
@@ -136,16 +136,17 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 3vw;
+  font-size: clamp(1.2rem, 3vw, 3rem);
   z-index: 10001;
 }
 
 #menuDesc { /* index */ /*adjusted!*/
   position: absolute;
   top: 20%;
-  transform: translateX(208%);
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-  font-size: 2vw;
+  font-size: clamp(0.9rem, 2vw, 2rem);
   z-index: 10001;
 }
 
@@ -166,7 +167,7 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
   max-width: 22%;
   transform: translateX(-30%);
   color: white;
-  font-size: 2vw;
+  font-size: clamp(0.9rem, 2vw, 2rem);
   z-index: -1;
 }
 
@@ -177,7 +178,7 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
   max-width: 23%;
   transform: translateX(-148%);
   color: white;
-  font-size: 2vw;
+  font-size: clamp(0.9rem, 2vw, 2rem);
   z-index: -1;
 }
 
@@ -188,7 +189,7 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
   max-width: 23%;
   transform: translateX(76%);
   color: white;
-  font-size: 2vw;
+  font-size: clamp(0.9rem, 2vw, 2rem);
   z-index: -1;
 }
 
@@ -198,7 +199,7 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
   left: 25%;
   transform: translateX(-50%);
   color: white;
-  font-size: 5vw;
+  font-size: clamp(2rem, 5vw, 5rem);
   z-index: 10001;
   max-width: 200%;
   white-space: nowrap;
@@ -314,8 +315,6 @@ a:hover { /* all pages, top tab hover */ /*adjusted!*/
     min-width: 180px;
     font-size: 1em;
     padding: 10px 15px;
-    top: 145vw !important;
-    transform: translateX(9%) !important;
   }
 }
 
@@ -609,7 +608,7 @@ canvas {
   top: 16%;
   right: 7.5%;
   color: white;
-  font-size: 4.6vw;
+  font-size: clamp(1.8rem, 4.6vw, 5rem);
   z-index: 10001;
   max-width: 200%;
   white-space: nowrap;
@@ -620,7 +619,7 @@ canvas {
   top: 50%;
   left: 20%;
   color: white;
-  font-size: 3vw;
+  font-size: clamp(1.2rem, 3vw, 3rem);
   z-index: 10001;
   max-width: 100%;
   white-space: nowrap;
@@ -681,7 +680,7 @@ canvas {
   left: 34%;
   transform: translateX(-50%);
   color: white;
-  font-size: 500%;
+  font-size: clamp(2.5rem, 6vw, 5rem);
   z-index: 10001;
   max-width: 200%;
   white-space: nowrap;
@@ -695,7 +694,7 @@ button {
   height: 14%;
   background-color: #333;
   color: white;
-  font-size: 3vw;
+  font-size: clamp(1rem, 3vw, 2.5rem);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   border: none;
   border-radius: 25px;
@@ -905,7 +904,6 @@ button:hover {
   left: 31vw;
   transform: translateX(-50%);
   color: white;
-  font-size: 360%;
   z-index: 10001;
   max-width: 200%;
   white-space: nowrap;
@@ -1006,5 +1004,57 @@ button:hover {
   
   .about-logo-image {
     height: 60vw; /* 3 times the mobile logo size (40px) */
+  }
+}
+
+/* ===== Portrait phone: rotate page to landscape automatically ===== */
+@media (max-width: 768px) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+/* ===== Landscape phone: consistent layout for small-height screens ===== */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 1024px) {
+  #menuTitle {
+    top: 18%;
+  }
+
+  #menuDesc {
+    top: 26%;
+  }
+
+  #projectHeader {
+    top: 17%;
+  }
+
+  #filter {
+    top: 17%;
+  }
+
+  #projects-container {
+    top: 28%;
+  }
+
+  #contactHeader {
+    top: 20%;
+  }
+
+  .contact-left {
+    top: 30%;
+    height: 55%;
+  }
+
+  #contactInstructions {
+    bottom: auto;
+    top: 13%;
+    left: 5%;
   }
 }
