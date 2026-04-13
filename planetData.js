@@ -180,7 +180,7 @@ export const solarSystemData = {
                 size: 4.2,
                 position: 390,
                 texture: './images/uranus.jpg',
-                gif: './images/fly_brain.png'
+                gif: './images/fly_brain.gif'
             },
             {
                 name: "IBM Quantum Computing Hackathon",
